@@ -1,12 +1,11 @@
-package com.example.diseaseoutbreaks.Model
+package com.example.diseaseoutbreaks.data.network
 
-import com.example.diseaseoutbreaks.Api
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitBuilder {
 
-    const val BASE_URL: String = "https://api.rss2json.com/v1/"
+    const val BASE_URL: String = "https://api.rss2json.com/"
 
     val retrofitBuilder: Retrofit.Builder by lazy {
         Retrofit.Builder()

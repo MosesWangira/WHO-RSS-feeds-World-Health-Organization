@@ -1,4 +1,4 @@
-package com.example.diseaseoutbreaks.Model
+package com.example.diseaseoutbreaks.data.Model
 
 data class Feed(
     val author: String,

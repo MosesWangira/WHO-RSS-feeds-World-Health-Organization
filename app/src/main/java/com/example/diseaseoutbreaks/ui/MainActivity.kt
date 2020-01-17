@@ -1,13 +1,15 @@
-package com.example.diseaseoutbreaks
+package com.example.diseaseoutbreaks.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.diseaseoutbreaks.Model.DataClass
-import com.example.diseaseoutbreaks.Model.Item
-import com.example.diseaseoutbreaks.Model.RetrofitBuilder
+import com.example.diseaseoutbreaks.R
+import com.example.diseaseoutbreaks.data.Model.DataClass
+import com.example.diseaseoutbreaks.data.Model.Item
+import com.example.diseaseoutbreaks.data.network.RetrofitBuilder
+import com.example.diseaseoutbreaks.data.adapter.DiseasesAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -24,17 +26,18 @@ class MainActivity : AppCompatActivity() {
 
     private fun fetchDiseases() {
         val fetching_diseases =  RetrofitBuilder.apiService.getDiseases()
-
-        fetching_diseases.enqueue(object : Callback<List<Item>>{
-
-            override fun onFailure(call: Call<List<Item>>, t: Throwable) {
+        fetching_diseases.enqueue(object :Callback<DataClass>{
+            override fun onFailure(call: Call<DataClass>, t: Throwable) {
                 Toast.makeText(this@MainActivity, t.message, Toast.LENGTH_LONG).show()
                 Log.d("Check error", t.message)
             }
 
-            override fun onResponse(call: Call<List<Item>>, response: Response<List<Item>>) {
+            override fun onResponse(call: Call<DataClass>, response: Response<DataClass>) {
                 if (response.isSuccessful){
                     val diseases = response.body()
+
+                    val dis = diseases?.items?.size
+                    Log.d("Successful :","${dis}")
 
                     diseases?.let{
                         showDisease(it)
@@ -50,9 +53,10 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    private fun showDisease(items: List<Item>){
+    private fun showDisease(items: DataClass){
         recycle_view_display.layoutManager = LinearLayoutManager(this@MainActivity)
         recycle_view_display.hasFixedSize()
-        recycle_view_display.adapter = DiseasesAdapter(items)
+        recycle_view_display.adapter =
+            DiseasesAdapter(items)
     }
 }
