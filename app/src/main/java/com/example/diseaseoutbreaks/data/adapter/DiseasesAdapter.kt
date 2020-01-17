@@ -27,8 +27,10 @@ class DiseasesAdapter(val items : DataClass) : RecyclerView.Adapter<DiseasesAdap
 
         val disease = items.items[position]
 
-        holder.view.text.text = disease.title
-        holder.view.publication_date.text = disease.pubDate
+        holder.view.title.text = disease.title
+        holder.view.publication_date.text = "Publication Date : ${disease.pubDate}"
+        holder.view.link.text = "Link : ${disease.link}"
+        holder.view.description.text = disease.description
     }
 
     class DiseaseViewHolder (val view : View) : RecyclerView.ViewHolder(view)

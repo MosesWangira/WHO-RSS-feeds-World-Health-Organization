@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Disease Outbreaks</string>
+    <string name="description">Hello moses I wish this will provide a beatiful UI as I believe it will</string>
+    <string name="publication_date">publication date</string>
+    <string name="link">link</string>
+    <string name="title_of_the_disease">Title of the Disease</string>
 </resources>
