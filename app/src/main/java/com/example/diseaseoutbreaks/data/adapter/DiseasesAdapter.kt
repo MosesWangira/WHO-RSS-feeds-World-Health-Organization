@@ -10,15 +10,14 @@ import com.example.diseaseoutbreaks.data.Model.DataClass
 import kotlinx.android.synthetic.main.list_item.view.*
 
 class DiseasesAdapter(val items : DataClass) : RecyclerView.Adapter<DiseasesAdapter.DiseaseViewHolder>(){
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DiseaseViewHolder {
-       return DiseaseViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = DiseaseViewHolder(
            LayoutInflater.from(parent.context).inflate(
                R.layout.list_item,
                parent,
                false
            )
        )
-    }
+
 
 
     override fun getItemCount() = items.items.size
