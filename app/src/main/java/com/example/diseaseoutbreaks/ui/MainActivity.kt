@@ -3,6 +3,7 @@ package com.example.diseaseoutbreaks.ui
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.diseaseoutbreaks.R
@@ -28,13 +29,8 @@ class MainActivity : AppCompatActivity() {
         val fetching_diseases = RetrofitBuilder.apiService.getDiseases()
         fetching_diseases.enqueue(object : Callback<DataClass> {
             override fun onFailure(call: Call<DataClass>, t: Throwable) {
-                setContentView(R.layout.no_internet)
-
-                val retry : Button = findViewById(R.id.retry_no_internet)
-                retry.setOnClickListener {
-                    fetchDiseases()
-                }
 //                Toast.makeText(this@MainActivity, t.message, Toast.LENGTH_LONG).show()
+                Toast.makeText(this@MainActivity, "No internet", Toast.LENGTH_LONG).show()
 //                Log.d("Check error", t.message)
             }
 
