@@ -45,9 +45,7 @@ class MainActivity : AppCompatActivity() {
                         showDisease(it)
 
                     }
-//                    Toast.makeText(this@MainActivity, response.message(), Toast.LENGTH_LONG).show()
                 } else {
-//                    Toast.makeText(this@MainActivity, response.message(), Toast.LENGTH_LONG).show()
                 }
             }
 
@@ -61,16 +59,4 @@ class MainActivity : AppCompatActivity() {
             DiseasesAdapter(items)
     }
 
-//    private fun checkNetworkConnectionStatus() {
-//        val connMgr =
-//            getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-//        val activeInfo = connMgr.activeNetworkInfo
-//        if (activeInfo != null && activeInfo.isConnected)
-//            {
-//                //no internet connection
-//                no_internet_image.setImageResource(R.drawable.ic_launcher_background)
-//                no_internet_text.setText("No internet connection")
-//                setContentView(R.layout.no_internet)
-//            }
-//        }
 }
