@@ -53,9 +53,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showDisease(items: DataClass) {
-        recycle_view_display.layoutManager = LinearLayoutManager(this@MainActivity)
-        recycle_view_display.hasFixedSize()
-        recycle_view_display.adapter =
+        recycler_view_display.layoutManager = LinearLayoutManager(this@MainActivity)
+        recycler_view_display.hasFixedSize()
+        recycler_view_display.adapter =
             DiseasesAdapter(items)
     }
 
