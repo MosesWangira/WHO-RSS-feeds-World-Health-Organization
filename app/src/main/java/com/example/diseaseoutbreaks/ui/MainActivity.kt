@@ -1,10 +1,13 @@
 package com.example.diseaseoutbreaks.ui
 
+import android.app.SearchManager
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
+import android.view.Menu
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.diseaseoutbreaks.R
 import com.example.diseaseoutbreaks.data.Model.DataClass
@@ -17,6 +20,8 @@ import retrofit2.Response
 
 
 class MainActivity : AppCompatActivity() {
+
+    lateinit var adapter: DiseasesAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,8 +60,39 @@ class MainActivity : AppCompatActivity() {
     private fun showDisease(items: DataClass) {
         recycler_view_display.layoutManager = LinearLayoutManager(this@MainActivity)
         recycler_view_display.hasFixedSize()
-        recycler_view_display.adapter =
-            DiseasesAdapter(items)
+        adapter = DiseasesAdapter(items)
+        recycler_view_display.adapter = adapter
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.search_view, menu)
+
+        val manager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
+        val search_item = menu?.findItem(R.id.search)
+
+        val search_view = search_item?.actionView as SearchView
+
+        search_view.setSearchableInfo(manager.getSearchableInfo(componentName))
+
+        search_view.setOnQueryTextListener(object :
+            SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+                adapter.filter(query)
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String): Boolean {
+                adapter.filter(newText)
+                return false
+            }
+        })
+
+        return super.onCreateOptionsMenu(menu)
+    }
+
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        return super.onOptionsItemSelected(item)
+//    }
 
 }

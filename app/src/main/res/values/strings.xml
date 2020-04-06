@@ -4,4 +4,6 @@
     <string name="publication_date">publication date</string>
     <string name="link">link</string>
     <string name="title_of_the_disease">Title of the Disease</string>
+    <string name="search_disease">Search Disease</string>
+    <string name="search">Search</string>
 </resources>
