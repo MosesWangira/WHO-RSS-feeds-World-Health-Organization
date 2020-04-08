@@ -1,18 +1,16 @@
 package com.example.diseaseoutbreaks.ui
 
-import android.app.SearchManager
-import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.diseaseoutbreaks.R
 import com.example.diseaseoutbreaks.data.Model.DataClass
 import com.example.diseaseoutbreaks.data.adapter.DiseasesAdapter
 import com.example.diseaseoutbreaks.data.network.RetrofitBuilder
+import com.mlsdev.animatedrv.AnimatedRecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -28,6 +26,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         fetchDiseases()
+
     }
 
     private fun fetchDiseases() {
@@ -58,35 +57,35 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showDisease(items: DataClass) {
-        recycler_view_display.layoutManager = LinearLayoutManager(this@MainActivity)
-        recycler_view_display.hasFixedSize()
+        recycler_view.layoutManager = LinearLayoutManager(this@MainActivity)
+        recycler_view.hasFixedSize()
         adapter = DiseasesAdapter(items)
-        recycler_view_display.adapter = adapter
+        recycler_view.adapter = adapter
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater = menuInflater
         inflater.inflate(R.menu.search_view, menu)
 
-        val manager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
-        val search_item = menu?.findItem(R.id.search)
+//        val manager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
+//        val search_item = menu?.findItem(R.id.search)
 
-        val search_view = search_item?.actionView as SearchView
+//        val search_view = search_item?.actionView as SearchView
 
-        search_view.setSearchableInfo(manager.getSearchableInfo(componentName))
-
-        search_view.setOnQueryTextListener(object :
-            SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String): Boolean {
-                adapter.filter(query)
-                return false
-            }
-
-            override fun onQueryTextChange(newText: String): Boolean {
-                adapter.filter(newText)
-                return false
-            }
-        })
+//        search_view.setSearchableInfo(manager.getSearchableInfo(componentName))
+//
+//        search_view.setOnQueryTextListener(object :
+//            SearchView.OnQueryTextListener {
+//            override fun onQueryTextSubmit(query: String): Boolean {
+//                adapter.filter(query)
+//                return false
+//            }
+//
+//            override fun onQueryTextChange(newText: String): Boolean {
+//                adapter.filter(newText)
+//                return false
+//            }
+//        })
 
         return super.onCreateOptionsMenu(menu)
     }
