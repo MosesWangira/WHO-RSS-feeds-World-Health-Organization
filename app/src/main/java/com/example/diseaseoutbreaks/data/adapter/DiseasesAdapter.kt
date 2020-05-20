@@ -41,34 +41,12 @@ class DiseasesAdapter(val items: DataClass) :
     }
 
 
-//    fun filter(text: String) {
-//        val filteredData = ArrayList<Item>()
-//        val allItems  = ArrayList<List<Item>>()
-//
-//        if (text.isEmpty()) {
-//            items.clear()
-//            items.addAll(itemsCopy)
-//        } else {
-//            val result: ArrayList<Item> = ArrayList()
-//            val text = text.toLowerCase()
-//            for (item in itemsCopy) { //match by name or phone
-//                if (item.title.toLowerCase().contains(text)) {
-//                    result.add(item)
-//                }
-//            }
-//            items.clear()
-//            items.addAll(result)
-//        }
-//        notifyDataSetChanged()
-//    }
-
     class DiseaseViewHolder(val view: View) : RecyclerView.ViewHolder(view)
 
     private fun setAnimation(
         viewToAnimate: View,
         position: Int
-    ) { // If the bound view wasn't previously displayed on screen, it's animated
-//        if (position > lastPosition) { //TranslateAnimation anim = new TranslateAnimation(0,-1000,0,-1000);
+    ) {
             val anim = ScaleAnimation(
                 0.0f,
                 1.0f,
@@ -83,6 +61,5 @@ class DiseasesAdapter(val items: DataClass) :
             anim.duration = 600 //to make duration random number between [0,501)
             viewToAnimate.startAnimation(anim)
             lastPosition = position
-//        }
     }
 }

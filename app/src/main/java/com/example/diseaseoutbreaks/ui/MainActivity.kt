@@ -33,9 +33,7 @@ class MainActivity : AppCompatActivity() {
         val fetching_diseases = RetrofitBuilder.apiService.getDiseases()
         fetching_diseases.enqueue(object : Callback<DataClass> {
             override fun onFailure(call: Call<DataClass>, t: Throwable) {
-//                Toast.makeText(this@MainActivity, t.message, Toast.LENGTH_LONG).show()
                 Toast.makeText(this@MainActivity, "No internet", Toast.LENGTH_LONG).show()
-//                Log.d("Check error", t.message)
             }
 
             override fun onResponse(call: Call<DataClass>, response: Response<DataClass>) {
@@ -62,36 +60,5 @@ class MainActivity : AppCompatActivity() {
         adapter = DiseasesAdapter(items)
         recycler_view.adapter = adapter
     }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        val inflater = menuInflater
-        inflater.inflate(R.menu.search_view, menu)
-
-//        val manager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
-//        val search_item = menu?.findItem(R.id.search)
-
-//        val search_view = search_item?.actionView as SearchView
-
-//        search_view.setSearchableInfo(manager.getSearchableInfo(componentName))
-//
-//        search_view.setOnQueryTextListener(object :
-//            SearchView.OnQueryTextListener {
-//            override fun onQueryTextSubmit(query: String): Boolean {
-//                adapter.filter(query)
-//                return false
-//            }
-//
-//            override fun onQueryTextChange(newText: String): Boolean {
-//                adapter.filter(newText)
-//                return false
-//            }
-//        })
-
-        return super.onCreateOptionsMenu(menu)
-    }
-
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        return super.onOptionsItemSelected(item)
-//    }
-
 }
+
