@@ -14,6 +14,7 @@ import com.example.diseaseoutbreaks.data.adapter.DiseasesAdapter
 import com.example.diseaseoutbreaks.data.network.RetrofitBuilder
 import com.example.diseaseoutbreaks.databinding.FragmentDiseaseOutbreaksBinding
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_disease_outbreaks.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

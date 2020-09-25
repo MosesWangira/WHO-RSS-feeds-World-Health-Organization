@@ -7,16 +7,17 @@
         <item
             android:id="@+id/homeFragment"
             android:enabled="true"
-            android:icon="@drawable/home_ic"
+            android:icon="@drawable/newspaper_ic"
             android:title="@string/news"
             android:tooltipText="@string/news"
             app:labelVisibilityMode="auto"
-            tools:ignore="UnusedAttribute" />
+            tools:ignore="UnusedAttribute"
+            />
 
         <item
-            android:id="@+id/attackFragment"
+            android:id="@+id/diseaseOutbreaks"
             android:enabled="true"
-            android:icon="@drawable/terrorist_ic"
+            android:icon="@drawable/spread_ic"
             android:title="@string/outbreaks"
             android:tooltipText="@string/outbreaks"
             app:labelVisibilityMode="auto"
@@ -25,7 +26,7 @@
         <item
             android:id="@+id/scandals"
             android:enabled="true"
-            android:icon="@drawable/scandal_ic"
+            android:icon="@drawable/product_alert_ic"
             android:title="@string/product_alert"
             android:tooltipText="@string/product_alert"
             app:labelVisibilityMode="auto"
@@ -34,7 +35,7 @@
         <item
             android:id="@+id/murderFragment"
             android:enabled="true"
-            android:icon="@drawable/murder_ic"
+            android:icon="@drawable/diary_ic"
             android:title="@string/feature_stories"
             android:tooltipText="@string/feature_stories"
             app:labelVisibilityMode="auto"
@@ -43,7 +44,7 @@
         <item
             android:id="@+id/inventions"
             android:enabled="true"
-            android:icon="@drawable/inventions_ic"
+            android:icon="@drawable/emergency_ic"
             android:title="@string/emergency_news"
             android:tooltipText="@string/emergency_news"
             app:labelVisibilityMode="auto"

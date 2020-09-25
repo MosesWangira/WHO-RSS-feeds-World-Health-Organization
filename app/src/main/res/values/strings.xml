@@ -11,6 +11,6 @@
     <string name="news">News</string>
     <string name="outbreaks">Outbreaks</string>
     <string name="product_alert">Product Alert</string>
-    <string name="feature_stories">Feature Stories</string>
-    <string name="emergency_news">Emergency News</string>
+    <string name="feature_stories">Stories</string>
+    <string name="emergency_news">Emergency</string>
 </resources>

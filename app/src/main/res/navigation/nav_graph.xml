@@ -8,11 +8,11 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.diseaseoutbreaks.ui.HomeFragment"
-        android:label="fragment_home"
+        android:label="News"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/diseaseOutbreaks"
         android:name="com.example.diseaseoutbreaks.ui.DiseaseOutbreaks"
-        android:label="fragment_disease_outbreaks"
+        android:label="Disease Outbreaks"
         tools:layout="@layout/fragment_disease_outbreaks" />
 </navigation>
