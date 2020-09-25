@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <group android:checkableBehavior="none">
+        <item
+            android:id="@+id/homeFragment"
+            android:enabled="true"
+            android:icon="@drawable/home_ic"
+            android:title="@string/home"
+            android:tooltipText="@string/home"
+            app:labelVisibilityMode="auto"
+            tools:ignore="UnusedAttribute" />
+
+        <item
+            android:id="@+id/attackFragment"
+            android:enabled="true"
+            android:icon="@drawable/terrorist_ic"
+            android:title="@string/attacks"
+            android:tooltipText="@string/attacks"
+            app:labelVisibilityMode="auto"
+            tools:ignore="UnusedAttribute" />
+
+        <item
+            android:id="@+id/scandals"
+            android:enabled="true"
+            android:icon="@drawable/scandal_ic"
+            android:title="@string/scandals"
+            android:tooltipText="@string/scandals"
+            app:labelVisibilityMode="auto"
+            tools:targetApi="o" />
+
+        <item
+            android:id="@+id/murderFragment"
+            android:enabled="true"
+            android:icon="@drawable/murder_ic"
+            android:title="@string/murders"
+            android:tooltipText="@string/murders"
+            app:labelVisibilityMode="auto"
+            tools:ignore="UnusedAttribute" />
+
+        <item
+            android:id="@+id/inventions"
+            android:enabled="true"
+            android:icon="@drawable/inventions_ic"
+            android:title="@string/inventions"
+            android:tooltipText="@string/inventions"
+            app:labelVisibilityMode="auto"
+            tools:ignore="UnusedAttribute" />
+
+    </group>
+
+</menu>
