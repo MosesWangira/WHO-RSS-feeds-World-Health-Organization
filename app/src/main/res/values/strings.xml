@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Disease Outbreaks</string>
+    <string name="app_name">WHO Feeds</string>
     <string name="description">Hello moses I wish this will provide a beatiful UI as I believe it will</string>
     <string name="publication_date">publication date</string>
     <string name="link">link</string>
