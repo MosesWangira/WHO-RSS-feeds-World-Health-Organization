@@ -8,17 +8,18 @@
     tools:context=".ui.SplashScreen">
 
     <ImageView
-        android:id="@+id/whoImage"
+        android:id="@+id/splashImage"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_centerInParent="true"
         android:src="@drawable/who_image"/>
 
     <TextView
+        android:id="@+id/splashText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text=" Universal health coverage\n everyone\n everywhere."
-        android:layout_below="@+id/whoImage"
+        android:layout_below="@+id/splashImage"
         android:gravity="center_horizontal"
         android:textStyle="bold"/>
 
