@@ -18,18 +18,13 @@ import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var viewModel: DiseasesViewModel
 
     lateinit var adapter: DiseasesAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        viewModel = ViewModelProviders.of(this).get(DiseasesViewModel::class.java)
-
         fetchDiseases()
-
     }
 
     private fun fetchDiseases() {
