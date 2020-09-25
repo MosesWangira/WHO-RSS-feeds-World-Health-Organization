@@ -18,9 +18,10 @@
         android:id="@+id/splashText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text=" Universal health coverage\n everyone\n everywhere."
+        android:text=" Universal health coverage\n everyone everywhere."
         android:layout_below="@+id/splashImage"
         android:gravity="center_horizontal"
-        android:textStyle="bold"/>
+        android:textSize="12sp"
+        />
 
 </RelativeLayout>

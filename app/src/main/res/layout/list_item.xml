@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -28,14 +27,14 @@
             android:layout_gravity="center_vertical"
             android:layout_marginStart="2dp"
             android:layout_marginEnd="2dp"
-            android:tint="@color/colorPrimary"
-            android:src="@drawable/virus" />
+            android:src="@drawable/virus"
+            android:tint="@color/colorPrimary" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="2dp"
-            android:layout_marginEnd="2dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             android:orientation="vertical">
 
             <TextView
@@ -58,15 +57,15 @@
                 android:textSize="12sp"
                 android:textStyle="italic" />
 
-            <TextView
-                android:id="@+id/link"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="2dp"
-                android:layout_marginLeft="2dp"
-                android:text="@string/link"
-                android:textSize="12sp"
-                app:fontFamily="@font/dekko" />
+            <!--            <TextView-->
+            <!--                android:id="@+id/link"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginStart="2dp"-->
+            <!--                android:layout_marginLeft="2dp"-->
+            <!--                android:text="@string/link"-->
+            <!--                android:textSize="12sp"-->
+            <!--                />-->
         </LinearLayout>
     </LinearLayout>
 
@@ -74,8 +73,7 @@
         android:id="@+id/description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
+        android:layout_margin="5dp"
         android:text="@string/description"
         android:textSize="12sp" />
 

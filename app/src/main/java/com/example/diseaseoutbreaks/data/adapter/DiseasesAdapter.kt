@@ -1,5 +1,6 @@
 package com.example.diseaseoutbreaks.data.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,13 +28,14 @@ class DiseasesAdapter(val items: DataClass) :
 
     override fun getItemCount() = items.items.size
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: DiseaseViewHolder, position: Int) {
 
         val disease = items.items[position]
 
         holder.view.title.text = disease.title
         holder.view.publication_date.text = "Publication Date : ${disease.pubDate}"
-        holder.view.link.text = "Link : ${disease.link}"
+//        holder.view.link.text = "Link : ${disease.link}"
         holder.view.description.text = disease.description
 
         setAnimation(holder.itemView, position)
