@@ -53,7 +53,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showDisease(items: DataClass) {
-        recycler_view.layoutManager = LinearLayoutManager(this@MainActivity)
         recycler_view.hasFixedSize()
         adapter = DiseasesAdapter(items)
         recycler_view.adapter = adapter
