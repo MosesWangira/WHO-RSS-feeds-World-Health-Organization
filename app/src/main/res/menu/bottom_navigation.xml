@@ -8,8 +8,8 @@
             android:id="@+id/homeFragment"
             android:enabled="true"
             android:icon="@drawable/home_ic"
-            android:title="@string/home"
-            android:tooltipText="@string/home"
+            android:title="@string/news"
+            android:tooltipText="@string/news"
             app:labelVisibilityMode="auto"
             tools:ignore="UnusedAttribute" />
 
@@ -17,8 +17,8 @@
             android:id="@+id/attackFragment"
             android:enabled="true"
             android:icon="@drawable/terrorist_ic"
-            android:title="@string/attacks"
-            android:tooltipText="@string/attacks"
+            android:title="@string/outbreaks"
+            android:tooltipText="@string/outbreaks"
             app:labelVisibilityMode="auto"
             tools:ignore="UnusedAttribute" />
 
@@ -26,8 +26,8 @@
             android:id="@+id/scandals"
             android:enabled="true"
             android:icon="@drawable/scandal_ic"
-            android:title="@string/scandals"
-            android:tooltipText="@string/scandals"
+            android:title="@string/product_alert"
+            android:tooltipText="@string/product_alert"
             app:labelVisibilityMode="auto"
             tools:targetApi="o" />
 
@@ -35,8 +35,8 @@
             android:id="@+id/murderFragment"
             android:enabled="true"
             android:icon="@drawable/murder_ic"
-            android:title="@string/murders"
-            android:tooltipText="@string/murders"
+            android:title="@string/feature_stories"
+            android:tooltipText="@string/feature_stories"
             app:labelVisibilityMode="auto"
             tools:ignore="UnusedAttribute" />
 
@@ -44,8 +44,8 @@
             android:id="@+id/inventions"
             android:enabled="true"
             android:icon="@drawable/inventions_ic"
-            android:title="@string/inventions"
-            android:tooltipText="@string/inventions"
+            android:title="@string/emergency_news"
+            android:tooltipText="@string/emergency_news"
             app:labelVisibilityMode="auto"
             tools:ignore="UnusedAttribute" />
 
