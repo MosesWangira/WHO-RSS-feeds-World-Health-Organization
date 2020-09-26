@@ -1,4 +1,4 @@
-package com.example.diseaseoutbreaks.ui
+package com.example.diseaseoutbreaks.ui.diseaseOutbreak
 
 import android.app.Application
 import android.util.Log

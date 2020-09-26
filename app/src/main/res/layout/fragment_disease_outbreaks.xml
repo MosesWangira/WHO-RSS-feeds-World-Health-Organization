@@ -6,7 +6,7 @@
     <data>
         <variable
             name="fragmentDiseaseViewModel"
-            type="com.example.diseaseoutbreaks.ui.DiseaseOutbreakViewModel" />
+            type="com.example.diseaseoutbreaks.ui.diseaseOutbreak.DiseaseOutbreakViewModel" />
     </data>
 
     <LinearLayout
@@ -14,7 +14,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_marginBottom="50dp"
-        tools:context=".ui.DiseaseOutbreaks">
+        tools:context=".ui.diseaseOutbreak.DiseaseOutbreaks">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
