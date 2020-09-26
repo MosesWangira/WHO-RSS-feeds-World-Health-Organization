@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".ui.SplashScreen">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:id="@+id/splashImage"
+    <RelativeLayout
+        android:id="@+id/splashBackground"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_centerInParent="true"
-        android:src="@drawable/who_image"/>
+        android:layout_height="match_parent"
+        tools:context=".ui.SplashScreen">
 
-    <TextView
-        android:id="@+id/splashText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text=" Universal health coverage\n everyone everywhere."
-        android:layout_below="@+id/splashImage"
-        android:gravity="center_horizontal"
-        android:textSize="12sp"
-        />
+        <ImageView
+            android:id="@+id/splashImage"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/who_image" />
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/splashText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/splashImage"
+            android:gravity="center_horizontal"
+            android:text=" Universal health coverage\n everyone everywhere."
+            android:textSize="12sp" />
+
+    </RelativeLayout>
+</layout>

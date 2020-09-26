@@ -5,23 +5,21 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import android.view.animation.AnimationUtils
+import android.view.animation.LayoutAnimationController
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.example.diseaseoutbreaks.R
 import com.example.diseaseoutbreaks.data.Model.DataClass
-import com.example.diseaseoutbreaks.data.adapter.DiseasesAdapter
-import com.example.diseaseoutbreaks.data.network.RetrofitBuilder
 import com.example.diseaseoutbreaks.databinding.FragmentDiseaseOutbreaksBinding
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_disease_outbreaks.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import com.example.diseaseoutbreaks.functions.toast
+
 
 class DiseaseOutbreaks : Fragment() {
 
-    lateinit var adapter: DiseasesAdapter
+    private lateinit var viewModel: DiseaseOutbreakViewModel
 
     lateinit var binding: FragmentDiseaseOutbreaksBinding
 
@@ -30,40 +28,41 @@ class DiseaseOutbreaks : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_disease_outbreaks, container, false)
-        fetchDiseases()
+        binding =
+            DataBindingUtil.inflate(inflater, R.layout.fragment_disease_outbreaks, container, false)
+
+        Log.d("Disease: " ,"Disease ViewModel Called")
+        @Suppress("DEPRECATION")
+        viewModel = ViewModelProviders.of(this).get(DiseaseOutbreakViewModel::class.java)
+
+        binding.fragmentDiseaseViewModel = viewModel
+        binding.lifecycleOwner = this
+
+        makeApiCall()
+
         return binding.root
     }
 
-    private fun fetchDiseases() {
-        val fetchingDiseases = RetrofitBuilder.apiService.getDiseases()
-        fetchingDiseases.enqueue(object : Callback<DataClass> {
-            override fun onFailure(call: Call<DataClass>, t: Throwable) {
-                Toast.makeText(requireContext(), "No internet", Toast.LENGTH_LONG).show()
+    private fun makeApiCall(): DiseaseOutbreakViewModel {
+        @Suppress("DEPRECATION")
+        viewModel.getAllDiseaseOutBreaks().observe(this, Observer<DataClass> {
+            if (it != null) {
+                /**
+                 * update the adapter
+                 * */
+                binding.recyclerView.hasFixedSize()
+                val resId: Int = R.anim.layout_animation_fall_down
+                val animation: LayoutAnimationController =
+                    AnimationUtils.loadLayoutAnimation(requireContext(), resId)
+                binding.recyclerView.layoutAnimation = animation
+                viewModel.setAdapterData(it.items)
+
+            } else {
+                requireContext().toast("Error Fetching data")
             }
-
-            override fun onResponse(call: Call<DataClass>, response: Response<DataClass>) {
-                if (response.isSuccessful) {
-                    val diseases = response.body()
-
-                    val dis = diseases?.items?.size
-                    Log.d("Successful :", "$dis")
-
-                    diseases?.let {
-                        showDisease(it)
-
-                    }
-                } else {
-                }
-            }
-
         })
-    }
+        viewModel.fetchDiseases()
 
-    private fun showDisease(items: DataClass) {
-        recycler_view.hasFixedSize()
-        adapter = DiseasesAdapter(items)
-        recycler_view.adapter = adapter
+        return viewModel
     }
-
 }

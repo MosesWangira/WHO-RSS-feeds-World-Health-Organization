@@ -13,7 +13,7 @@ object RetrofitBuilder {
     const val BASE_URL: String = "https://api.rss2json.com/"
 
 
-    val retrofitBuilder: Retrofit.Builder by lazy {
+    private val retrofitBuilder: Retrofit.Builder by lazy {
         Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())

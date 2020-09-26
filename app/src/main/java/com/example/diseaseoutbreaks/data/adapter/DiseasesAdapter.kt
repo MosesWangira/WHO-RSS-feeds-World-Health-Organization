@@ -4,18 +4,22 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.Animation
-import android.view.animation.ScaleAnimation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.diseaseoutbreaks.R
 import com.example.diseaseoutbreaks.data.Model.DataClass
+import com.example.diseaseoutbreaks.data.Model.Item
 import kotlinx.android.synthetic.main.list_item.view.*
 
+//val items: DataClass
 
-class DiseasesAdapter(val items: DataClass) :
+class DiseasesAdapter() :
     RecyclerView.Adapter<DiseasesAdapter.DiseaseViewHolder>() {
 
-    private var lastPosition = -1
+    private var items = DataClass(ArrayList())
+
+    fun setDataList(items: List<Item>) {
+        this.items.items = items
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = DiseaseViewHolder(
         LayoutInflater.from(parent.context).inflate(
@@ -38,7 +42,7 @@ class DiseasesAdapter(val items: DataClass) :
         holder.view.description.text = disease.description
     }
 
-
     class DiseaseViewHolder(val view: View) : RecyclerView.ViewHolder(view)
+
 
 }

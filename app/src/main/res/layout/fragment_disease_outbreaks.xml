@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="fragmentDiseaseViewModel"
+            type="com.example.diseaseoutbreaks.ui.DiseaseOutbreakViewModel" />
+    </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -14,7 +20,7 @@
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layoutAnimation="@anim/layout_animation_fall_down"
+            app:setAdapter="@{fragmentDiseaseViewModel.getMyAdapter()}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     </LinearLayout>
