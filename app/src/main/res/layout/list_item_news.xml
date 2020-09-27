@@ -29,7 +29,7 @@
             tools:ignore="NestedWeights">
 
             <TextView
-                android:id="@+id/NewsTitle"
+                android:id="@+id/newsTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
@@ -40,7 +40,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/NewsPublicationDate"
+                android:id="@+id/newsPublicationDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"

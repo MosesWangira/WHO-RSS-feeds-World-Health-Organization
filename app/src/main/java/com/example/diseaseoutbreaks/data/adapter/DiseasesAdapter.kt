@@ -10,8 +10,6 @@ import com.example.diseaseoutbreaks.data.Model.diseases.DataClass
 import com.example.diseaseoutbreaks.data.Model.diseases.Item
 import kotlinx.android.synthetic.main.list_item_diseases.view.*
 
-//val items: DataClass
-
 class DiseasesAdapter() :
     RecyclerView.Adapter<DiseasesAdapter.DiseaseViewHolder>() {
 

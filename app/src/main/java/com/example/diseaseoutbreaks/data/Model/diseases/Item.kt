@@ -1,7 +1,5 @@
 package com.example.diseaseoutbreaks.data.Model.diseases
 
-import com.example.diseaseoutbreaks.data.Model.diseases.Enclosure
-
 data class Item(
     val author: String,
     val categories: List<String>,
