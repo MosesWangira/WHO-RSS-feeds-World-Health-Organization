@@ -25,7 +25,7 @@ class EmergencyAdapter() :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = EmergencyViewHolder(
         LayoutInflater.from(parent.context).inflate(
-            R.layout.list_item_maternal,
+            R.layout.list_item_emergency,
             parent,
             false
         )
