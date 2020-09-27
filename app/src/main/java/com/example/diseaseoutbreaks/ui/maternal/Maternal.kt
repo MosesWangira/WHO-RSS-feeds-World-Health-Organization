@@ -56,7 +56,7 @@ class Maternal : Fragment() {
                  * update the adapter
                  * */
                 binding.maternalRecyclerView.hasFixedSize()
-                val resId: Int = R.anim.layout_animation_fall_down
+                val resId: Int = R.anim.layout_animation_from_bottom
                 val animation: LayoutAnimationController =
                     AnimationUtils.loadLayoutAnimation(requireContext(), resId)
                 binding.maternalRecyclerView.layoutAnimation = animation
