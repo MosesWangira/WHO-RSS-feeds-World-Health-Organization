@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
             setOf(
                 R.id.homeFragment,
                 R.id.diseaseOutbreaks,
-                R.id.scandals,
+                R.id.productAlert,
                 R.id.maternal,
                 R.id.emergency
             )

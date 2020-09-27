@@ -18,9 +18,16 @@
     <fragment
         android:id="@+id/maternal"
         android:name="com.example.diseaseoutbreaks.ui.maternal.Maternal"
-        android:label="Maternal,NewbornChild &amp; health" />
+        android:label="Maternal,NewbornChild &amp; health"
+        tools:layout="@layout/fragment_maternal"/>
     <fragment
         android:id="@+id/emergency"
         android:name="com.example.diseaseoutbreaks.ui.emergency.Emergency"
-        android:label="Emergencies and disasters" />
+        android:label="Emergencies and disasters"
+        tools:layout="@layout/fragment_emergency"/>
+    <fragment
+        android:id="@+id/productAlert"
+        android:name="com.example.diseaseoutbreaks.ui.productalert.ProductAlert"
+        android:label="Medical Product Alert"
+        tools:layout="@layout/fragment_product_alert"/>
 </navigation>

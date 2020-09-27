@@ -24,7 +24,7 @@
             tools:ignore="UnusedAttribute" />
 
         <item
-            android:id="@+id/scandals"
+            android:id="@+id/productAlert"
             android:enabled="true"
             android:icon="@drawable/product_alert_ic"
             android:title="@string/product_alert"
