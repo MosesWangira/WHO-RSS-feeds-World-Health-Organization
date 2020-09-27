@@ -8,15 +8,19 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.diseaseoutbreaks.ui.news.News"
-        android:label="News"
+        android:label="WHO news"
         tools:layout="@layout/fragment_news" />
     <fragment
         android:id="@+id/diseaseOutbreaks"
         android:name="com.example.diseaseoutbreaks.ui.diseaseOutbreak.DiseaseOutbreaks"
-        android:label="Disease Outbreaks"
+        android:label="Disease outbreak news"
         tools:layout="@layout/fragment_disease_outbreaks" />
     <fragment
         android:id="@+id/maternal"
         android:name="com.example.diseaseoutbreaks.ui.maternal.Maternal"
-        android:label="Maternal" />
+        android:label="Maternal, newborn and child health" />
+    <fragment
+        android:id="@+id/emergency"
+        android:name="com.example.diseaseoutbreaks.ui.emergency.Emergency"
+        android:label="Emergencies and disasters" />
 </navigation>

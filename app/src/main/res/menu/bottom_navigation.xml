@@ -42,7 +42,7 @@
             tools:ignore="UnusedAttribute" />
 
         <item
-            android:id="@+id/inventions"
+            android:id="@+id/emergency"
             android:enabled="true"
             android:icon="@drawable/emergency_ic"
             android:title="@string/emergency_news"

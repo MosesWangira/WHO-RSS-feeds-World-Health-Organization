@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.diseaseOutbreaks,
                 R.id.scandals,
                 R.id.maternal,
-                R.id.inventions
+                R.id.emergency
             )
         )
 
