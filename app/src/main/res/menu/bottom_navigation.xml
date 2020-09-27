@@ -35,9 +35,9 @@
         <item
             android:id="@+id/murderFragment"
             android:enabled="true"
-            android:icon="@drawable/diary_ic"
-            android:title="@string/feature_stories"
-            android:tooltipText="@string/feature_stories"
+            android:icon="@drawable/maternity_ic"
+            android:title="@string/child_health"
+            android:tooltipText="@string/child_health"
             app:labelVisibilityMode="auto"
             tools:ignore="UnusedAttribute" />
 
