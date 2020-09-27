@@ -6,17 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.diseaseoutbreaks.R
-import com.example.diseaseoutbreaks.data.Model.diseases.DataClass
-import com.example.diseaseoutbreaks.data.Model.diseases.Item
+import com.example.diseaseoutbreaks.data.Model.diseases.DiseaseDataClass
+import com.example.diseaseoutbreaks.data.Model.diseases.DiseaseItem
 import kotlinx.android.synthetic.main.list_item_diseases.view.*
 
 class DiseasesAdapter() :
     RecyclerView.Adapter<DiseasesAdapter.DiseaseViewHolder>() {
 
     private var items =
-        DataClass(ArrayList())
+        DiseaseDataClass(ArrayList())
 
-    fun setDataList(items: List<Item>) {
+    fun setDataList(items: List<DiseaseItem>) {
         this.items.items = items
     }
 

@@ -1,6 +1,6 @@
-package com.example.diseaseoutbreaks.data.Model.maternal
+package com.example.diseaseoutbreaks.data.Model.diseases
 
-data class Item(
+data class DiseaseItem(
     val author: String,
     val categories: List<String>,
     val content: String,
