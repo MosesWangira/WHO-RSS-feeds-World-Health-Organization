@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.diseaseoutbreaks.R
 import com.example.diseaseoutbreaks.data.Model.DataClass
 import com.example.diseaseoutbreaks.data.Model.Item
-import kotlinx.android.synthetic.main.list_item.view.*
+import kotlinx.android.synthetic.main.list_item_diseases.view.*
 
 //val items: DataClass
 
@@ -23,7 +23,7 @@ class DiseasesAdapter() :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = DiseaseViewHolder(
         LayoutInflater.from(parent.context).inflate(
-            R.layout.list_item,
+            R.layout.list_item_diseases,
             parent,
             false
         )
