@@ -33,7 +33,7 @@
             tools:targetApi="o" />
 
         <item
-            android:id="@+id/murderFragment"
+            android:id="@+id/maternal"
             android:enabled="true"
             android:icon="@drawable/maternity_ic"
             android:title="@string/child_health"

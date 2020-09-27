@@ -15,4 +15,8 @@
         android:name="com.example.diseaseoutbreaks.ui.diseaseOutbreak.DiseaseOutbreaks"
         android:label="Disease Outbreaks"
         tools:layout="@layout/fragment_disease_outbreaks" />
+    <fragment
+        android:id="@+id/maternal"
+        android:name="com.example.diseaseoutbreaks.ui.maternal.Maternal"
+        android:label="Maternal" />
 </navigation>

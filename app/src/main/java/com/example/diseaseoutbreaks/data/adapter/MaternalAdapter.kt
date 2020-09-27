@@ -22,7 +22,7 @@ class MaternalAdapter() :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = MaternalViewHolder(
         LayoutInflater.from(parent.context).inflate(
-            R.layout.list_item_news,
+            R.layout.list_item_maternal,
             parent,
             false
         )

@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.homeFragment,
                 R.id.diseaseOutbreaks,
                 R.id.scandals,
-                R.id.murderFragment,
+                R.id.maternal,
                 R.id.inventions
             )
         )
