@@ -18,7 +18,7 @@
     <fragment
         android:id="@+id/maternal"
         android:name="com.example.diseaseoutbreaks.ui.maternal.Maternal"
-        android:label="Maternal, newborn and child health" />
+        android:label="Maternal,NewbornChild &amp; health" />
     <fragment
         android:id="@+id/emergency"
         android:name="com.example.diseaseoutbreaks.ui.emergency.Emergency"
