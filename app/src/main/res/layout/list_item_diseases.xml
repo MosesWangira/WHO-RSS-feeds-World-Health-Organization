@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="3dp"
     android:background="@drawable/elavation_background"
     android:elevation="5dp"
@@ -27,8 +28,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginStart="2dp"
             android:layout_marginEnd="2dp"
-            android:src="@drawable/virus"
-            android:tint="@color/colorPrimary"
+            app:srcCompat="@drawable/disease_place_holder"
             />
 
         <LinearLayout

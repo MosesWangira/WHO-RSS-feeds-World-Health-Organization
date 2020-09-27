@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.diseaseoutbreaks.R
-import com.example.diseaseoutbreaks.data.Model.DataClass
+import com.example.diseaseoutbreaks.data.Model.diseases.DataClass
 import com.example.diseaseoutbreaks.databinding.FragmentDiseaseOutbreaksBinding
 import com.example.diseaseoutbreaks.functions.toast
 

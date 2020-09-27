@@ -3,14 +3,11 @@ package com.example.diseaseoutbreaks.ui.diseaseOutbreak
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Observer
-import com.example.diseaseoutbreaks.data.Model.DataClass
-import com.example.diseaseoutbreaks.data.Model.Item
+import com.example.diseaseoutbreaks.data.Model.diseases.DataClass
+import com.example.diseaseoutbreaks.data.Model.diseases.Item
 import com.example.diseaseoutbreaks.data.adapter.DiseasesAdapter
 import com.example.diseaseoutbreaks.data.network.RetrofitBuilder
-import com.example.diseaseoutbreaks.functions.toast
 import retrofit2.Call
 import retrofit2.Response
 

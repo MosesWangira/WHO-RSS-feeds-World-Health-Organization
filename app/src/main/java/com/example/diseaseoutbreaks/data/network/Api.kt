@@ -1,6 +1,6 @@
 package com.example.diseaseoutbreaks.data.network
 
-import com.example.diseaseoutbreaks.data.Model.DataClass
+import com.example.diseaseoutbreaks.data.Model.diseases.DataClass
 import retrofit2.Call
 import retrofit2.http.GET
 
