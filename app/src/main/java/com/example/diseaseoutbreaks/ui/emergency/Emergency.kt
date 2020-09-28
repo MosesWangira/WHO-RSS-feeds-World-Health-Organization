@@ -2,18 +2,19 @@ package com.example.diseaseoutbreaks.ui.emergency
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.view.animation.LayoutAnimationController
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.diseaseoutbreaks.R
 import com.example.diseaseoutbreaks.data.Model.emergency.EmergencyDataClass
 import com.example.diseaseoutbreaks.databinding.FragmentEmergencyBinding
+import com.example.diseaseoutbreaks.util.animate
 import com.example.diseaseoutbreaks.util.toast
 import com.example.diseaseoutbreaks.viewmodels.EmergencyViewModel
 
@@ -31,7 +32,7 @@ class Emergency : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_emergency, container, false)
 
 
-        Log.d("Disease: " ,"Disease ViewModel Called")
+        Log.d("Disease: ", "Disease ViewModel Called")
         @Suppress("DEPRECATION")
         viewModel = ViewModelProviders.of(this).get(EmergencyViewModel::class.java)
 
@@ -43,7 +44,7 @@ class Emergency : Fragment() {
         return binding.root
     }
 
-    private fun makeApiCallInCoroutines(): EmergencyViewModel{
+    private fun makeApiCallInCoroutines(): EmergencyViewModel {
         @Suppress("DEPRECATION")
         viewModel.getAllEmergenciesData().observe(this, Observer<EmergencyDataClass> {
             if (it != null) {
@@ -51,13 +52,9 @@ class Emergency : Fragment() {
                  * update the adapter
                  * */
 
-                val resId: Int = R.anim.layout_animation_slide_right
-                val animation: LayoutAnimationController =
-                    AnimationUtils.loadLayoutAnimation(requireContext(), resId)
-
                 binding.emergencyRecyclerView.apply {
                     hasFixedSize()
-                    layoutAnimation = animation
+                    layoutAnimation = animate(requireContext(), R.anim.layout_animation_from_bottom)
                 }
 
                 viewModel.setAdapterData(it.items)

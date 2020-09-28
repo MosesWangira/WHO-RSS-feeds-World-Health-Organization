@@ -2,19 +2,17 @@ package com.example.diseaseoutbreaks.ui.productalert
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AnimationUtils
-import android.view.animation.LayoutAnimationController
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.RecyclerView
 import com.example.diseaseoutbreaks.R
 import com.example.diseaseoutbreaks.data.Model.productalert.ProductAlertDataClass
 import com.example.diseaseoutbreaks.databinding.FragmentProductAlertBinding
+import com.example.diseaseoutbreaks.util.animate
 import com.example.diseaseoutbreaks.util.toast
 import com.example.diseaseoutbreaks.viewmodels.ProductAlertViewModel
 
@@ -30,9 +28,10 @@ class ProductAlert : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_product_alert, container, false)
+        binding =
+            DataBindingUtil.inflate(inflater, R.layout.fragment_product_alert, container, false)
 
-        Log.d("Disease: " ,"Disease ViewModel Called")
+        Log.d("Disease: ", "Disease ViewModel Called")
         @Suppress("DEPRECATION")
         viewModel = ViewModelProviders.of(this).get(ProductAlertViewModel::class.java)
 
@@ -44,20 +43,16 @@ class ProductAlert : Fragment() {
         return binding.root
     }
 
-    private fun makeApiCallInCoroutines(): ProductAlertViewModel{
+    private fun makeApiCallInCoroutines(): ProductAlertViewModel {
         @Suppress("DEPRECATION")
         viewModel.getAllMedicalProducts().observe(this, Observer<ProductAlertDataClass> {
             if (it != null) {
                 /**
                  * update the adapter
                  * */
-                val resId: Int = R.anim.layout_animation_slide_right
-                val animation: LayoutAnimationController =
-                    AnimationUtils.loadLayoutAnimation(requireContext(), resId)
-
                 binding.productRecyclerView.apply {
                     hasFixedSize()
-                    layoutAnimation = animation
+                    layoutAnimation = animate(requireContext(), R.anim.layout_animation_slide_right)
                 }
 
                 viewModel.setAdapterData(it.items)

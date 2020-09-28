@@ -2,18 +2,17 @@ package com.example.diseaseoutbreaks.ui.maternal
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AnimationUtils
-import android.view.animation.LayoutAnimationController
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.diseaseoutbreaks.R
 import com.example.diseaseoutbreaks.data.Model.maternal.MaternalDataClass
 import com.example.diseaseoutbreaks.databinding.FragmentMaternalBinding
+import com.example.diseaseoutbreaks.util.animate
 import com.example.diseaseoutbreaks.util.toast
 import com.example.diseaseoutbreaks.viewmodels.MaternalViewModel
 
@@ -30,7 +29,7 @@ class Maternal : Fragment() {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_maternal, container, false)
 
-        Log.d("Disease: " ,"Disease ViewModel Called")
+        Log.d("Disease: ", "Disease ViewModel Called")
         @Suppress("DEPRECATION")
         viewModel = ViewModelProviders.of(this).get(MaternalViewModel::class.java)
 
@@ -50,13 +49,9 @@ class Maternal : Fragment() {
                 /**
                  * update the adapter
                  * */
-                val resId: Int = R.anim.layout_animation_from_bottom
-                val animation: LayoutAnimationController =
-                    AnimationUtils.loadLayoutAnimation(requireContext(), resId)
-
                 binding.maternalRecyclerView.apply {
                     hasFixedSize()
-                    layoutAnimation = animation
+                    layoutAnimation = animate(requireContext(), R.anim.layout_animation_from_bottom)
                 }
 
                 viewModel.setAdapterData(it.items)

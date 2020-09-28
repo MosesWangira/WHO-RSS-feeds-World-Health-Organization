@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.example.diseaseoutbreaks.R
 import com.example.diseaseoutbreaks.data.Model.diseases.DiseaseDataClass
 import com.example.diseaseoutbreaks.databinding.FragmentDiseaseOutbreaksBinding
+import com.example.diseaseoutbreaks.util.animate
 import com.example.diseaseoutbreaks.util.toast
 import com.example.diseaseoutbreaks.viewmodels.DiseaseOutbreakViewModel
 
@@ -32,7 +33,7 @@ class DiseaseOutbreaks : Fragment() {
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_disease_outbreaks, container, false)
 
-        Log.d("Disease: " ,"Disease ViewModel Called")
+        Log.d("Disease: ", "Disease ViewModel Called")
         @Suppress("DEPRECATION")
         viewModel = ViewModelProviders.of(this).get(DiseaseOutbreakViewModel::class.java)
 
@@ -44,20 +45,17 @@ class DiseaseOutbreaks : Fragment() {
         return binding.root
     }
 
-    private fun makeApiCallCoroutines(): DiseaseOutbreakViewModel{
+    private fun makeApiCallCoroutines(): DiseaseOutbreakViewModel {
         @Suppress("DEPRECATION")
         viewModel.getAllDiseaseOutBreaks().observe(this, Observer<DiseaseDataClass> {
             if (it != null) {
                 /**
                  * update the adapter
                  * */
-                val resId: Int = R.anim.layout_animation_fall_down
-                val animation: LayoutAnimationController =
-                    AnimationUtils.loadLayoutAnimation(requireContext(), resId)
 
                 binding.recyclerView.apply {
                     hasFixedSize()
-                    layoutAnimation = animation
+                    layoutAnimation = animate(requireContext(), R.anim.layout_animation_fall_down)
                 }
 
                 viewModel.setAdapterData(it.items)
