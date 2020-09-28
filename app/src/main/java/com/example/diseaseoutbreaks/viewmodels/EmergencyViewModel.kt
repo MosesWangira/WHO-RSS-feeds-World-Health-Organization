@@ -20,7 +20,7 @@ class EmergencyViewModel(application: Application) : AndroidViewModel(applicatio
     private val context = getApplication<Application>().applicationContext
 
     /**
-     *  LiveData gives us updated words when they change.
+     *  LiveData gives us updated data when they change.
      * */
     private var allEmergencies: MutableLiveData<EmergencyDataClass>
 
@@ -30,6 +30,7 @@ class EmergencyViewModel(application: Application) : AndroidViewModel(applicatio
         Log.d("Disease", "Disease ViewModel created")
         allEmergencies = MutableLiveData()
         adapter = EmergencyAdapter()
+        fetchEmergencyDataInCoroutine()
     }
 
     fun getMyAdapter(): EmergencyAdapter {
@@ -45,7 +46,7 @@ class EmergencyViewModel(application: Application) : AndroidViewModel(applicatio
         return allEmergencies
     }
 
-    fun fetchEmergencyDataInCoroutine() = viewModelScope.launch {
+    private fun fetchEmergencyDataInCoroutine() = viewModelScope.launch {
         try{
             val fetchingEmergency = RetrofitBuilder.apiService.getEmergency().await()
             allEmergencies.postValue(fetchingEmergency)

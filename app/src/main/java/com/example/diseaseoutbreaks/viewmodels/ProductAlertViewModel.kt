@@ -19,7 +19,7 @@ class ProductAlertViewModel(application: Application) : AndroidViewModel(applica
     private val context = getApplication<Application>().applicationContext
 
     /**
-     *  LiveData gives us updated words when they change.
+     *  LiveData gives us updated data when they change.
      * */
     private var allMedicalProduct: MutableLiveData<ProductAlertDataClass>
 
@@ -29,6 +29,7 @@ class ProductAlertViewModel(application: Application) : AndroidViewModel(applica
         Log.d("Disease", "Disease ViewModel created")
         allMedicalProduct = MutableLiveData()
         adapter = ProductAlertAdapter()
+        fetchProductInCoroutine()
     }
 
     fun getMyAdapter(): ProductAlertAdapter {
@@ -44,7 +45,7 @@ class ProductAlertViewModel(application: Application) : AndroidViewModel(applica
         return allMedicalProduct
     }
 
-    fun fetchProductInCoroutine() = viewModelScope.launch {
+    private fun fetchProductInCoroutine() = viewModelScope.launch {
         try{
             val fetchingProduct = RetrofitBuilder.apiService.getMedicalProductNews().await()
             allMedicalProduct.postValue(fetchingProduct)

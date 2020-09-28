@@ -60,7 +60,6 @@ class Maternal : Fragment() {
                 requireContext().toast("Error Fetching data")
             }
         })
-        viewModel.fetchMaternalInformation()
 
         return viewModel
     }

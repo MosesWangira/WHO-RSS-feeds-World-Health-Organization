@@ -59,7 +59,6 @@ class News : Fragment() {
                 requireContext().toast("Error retrieving data")
             }
         })
-        viewModel.fetchNewsInCoroutine()
 
         return viewModel
     }

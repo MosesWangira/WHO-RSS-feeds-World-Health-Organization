@@ -61,7 +61,6 @@ class ProductAlert : Fragment() {
                 requireContext().toast("Error Fetching data")
             }
         })
-        viewModel.fetchProductInCoroutine()
 
         return viewModel
     }

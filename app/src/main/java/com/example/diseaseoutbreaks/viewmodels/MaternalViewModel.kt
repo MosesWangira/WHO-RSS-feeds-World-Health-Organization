@@ -16,7 +16,7 @@ class MaternalViewModel(application: Application) : AndroidViewModel(application
     private val context = getApplication<Application>().applicationContext
 
     /**
-     *  LiveData gives us updated words when they change.
+     *  LiveData gives us updated data when they change.
      * */
     var allMaternalHealthInformation: MutableLiveData<MaternalDataClass>
 
@@ -26,6 +26,7 @@ class MaternalViewModel(application: Application) : AndroidViewModel(application
         Log.d("Disease", "Disease ViewModel created")
         allMaternalHealthInformation = MutableLiveData()
         adapter = MaternalAdapter()
+        fetchMaternalInformation()
     }
 
     fun getMyAdapter(): MaternalAdapter {
@@ -41,7 +42,7 @@ class MaternalViewModel(application: Application) : AndroidViewModel(application
         return allMaternalHealthInformation
     }
 
-    fun fetchMaternalInformation() {
+    private fun fetchMaternalInformation() {
         val fetchingDiseases = RetrofitBuilder.apiService.getMaternalInformation()
         fetchingDiseases.enqueue(object : retrofit2.Callback<MaternalDataClass> {
             override fun onFailure(call: Call<MaternalDataClass>, t: Throwable) {

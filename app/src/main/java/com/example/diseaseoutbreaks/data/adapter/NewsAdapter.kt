@@ -9,7 +9,6 @@ import com.bumptech.glide.Glide
 import com.example.diseaseoutbreaks.R
 import com.example.diseaseoutbreaks.data.Model.news.NewsDataClass
 import com.example.diseaseoutbreaks.data.Model.news.NewsItem
-import kotlinx.android.synthetic.main.list_item_image_left.view.*
 import kotlinx.android.synthetic.main.list_item_image_right.view.*
 
 class NewsAdapter() :
@@ -41,7 +40,7 @@ class NewsAdapter() :
         holder.view.titleRight.text = news.title
         holder.view.publicationDateRight.text = "Publication Date : ${news.pubDate}"
         holder.view.descriptionRight.text = news.description
-
+        
         Glide
             .with(holder.view.context)
             .load(R.drawable.news_paper_place_holder)

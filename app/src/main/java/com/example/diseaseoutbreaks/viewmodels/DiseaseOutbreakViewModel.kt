@@ -20,7 +20,7 @@ class DiseaseOutbreakViewModel(application: Application) : AndroidViewModel(appl
     private val context = getApplication<Application>().applicationContext
 
     /**
-     *  LiveData gives us updated words when they change.
+     *  LiveData gives us updated data when they change.
      * */
     private var allDiseases: MutableLiveData<DiseaseDataClass>
 
@@ -30,6 +30,7 @@ class DiseaseOutbreakViewModel(application: Application) : AndroidViewModel(appl
         Log.d("Disease", "Disease ViewModel created")
         allDiseases = MutableLiveData()
         adapter = DiseasesAdapter()
+        fetchDiseasesInCoroutine()
     }
 
     fun getMyAdapter(): DiseasesAdapter {
@@ -45,7 +46,7 @@ class DiseaseOutbreakViewModel(application: Application) : AndroidViewModel(appl
         return allDiseases
     }
 
-    fun fetchDiseasesInCoroutine() = viewModelScope.launch {
+    private fun fetchDiseasesInCoroutine() = viewModelScope.launch {
         try{
             val fetchingDiseases = RetrofitBuilder.apiService.getDiseases().await()
             allDiseases.postValue(fetchingDiseases)

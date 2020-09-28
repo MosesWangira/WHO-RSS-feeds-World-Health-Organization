@@ -20,7 +20,7 @@ class NewsViewModel(application: Application) : AndroidViewModel(application) {
     private val context = getApplication<Application>().applicationContext
 
     /**
-     *  LiveData gives us updated words when they change.
+     *  LiveData gives us updated data when they change.
      * */
     private var allNews: MutableLiveData<NewsDataClass>
 
@@ -30,6 +30,7 @@ class NewsViewModel(application: Application) : AndroidViewModel(application) {
         Log.d("Disease", "Disease ViewModel created")
         allNews = MutableLiveData()
         adapter = NewsAdapter()
+        fetchNewsInCoroutine()
     }
 
     fun getMyAdapter(): NewsAdapter {
@@ -45,7 +46,7 @@ class NewsViewModel(application: Application) : AndroidViewModel(application) {
         return allNews
     }
 
-    fun fetchNewsInCoroutine() = viewModelScope.launch {
+    private fun fetchNewsInCoroutine() = viewModelScope.launch {
         try{
             val fetchingNews = RetrofitBuilder.apiService.getNews().await()
             allNews.postValue(fetchingNews)
