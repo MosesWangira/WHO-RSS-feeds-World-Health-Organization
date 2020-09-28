@@ -34,8 +34,10 @@ class MaternalViewModel(application: Application) : AndroidViewModel(application
     }
 
     fun setAdapterData(data: List<MaternalItem>) {
-        adapter.setDataList(data)
-        adapter.notifyDataSetChanged()
+        adapter.apply {
+            setDataList(data)
+            notifyDataSetChanged()
+        }
     }
 
     fun getAllMaternalHealth(): MutableLiveData<MaternalDataClass> {

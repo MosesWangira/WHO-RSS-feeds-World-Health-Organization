@@ -38,8 +38,10 @@ class DiseaseOutbreakViewModel(application: Application) : AndroidViewModel(appl
     }
 
     fun setAdapterData(data: List<DiseaseItem>) {
-        adapter.setDataList(data)
-        adapter.notifyDataSetChanged()
+        adapter.apply {
+            setDataList(data)
+            notifyDataSetChanged()
+        }
     }
 
     fun getAllDiseaseOutBreaks(): MutableLiveData<DiseaseDataClass> {

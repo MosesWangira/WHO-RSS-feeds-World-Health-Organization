@@ -37,8 +37,10 @@ class ProductAlertViewModel(application: Application) : AndroidViewModel(applica
     }
 
     fun setAdapterData(data: List<ProductItem>) {
-        adapter.setDataList(data)
-        adapter.notifyDataSetChanged()
+        adapter.apply {
+            setDataList(data)
+            notifyDataSetChanged()
+        }
     }
 
     fun getAllMedicalProducts(): MutableLiveData<ProductAlertDataClass> {

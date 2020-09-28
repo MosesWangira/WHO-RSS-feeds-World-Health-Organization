@@ -38,8 +38,10 @@ class EmergencyViewModel(application: Application) : AndroidViewModel(applicatio
     }
 
     fun setAdapterData(data: List<EmergencyItem>) {
-        adapter.setDataList(data)
-        adapter.notifyDataSetChanged()
+        adapter.apply {
+            setDataList(data)
+            notifyDataSetChanged()
+        }
     }
 
     fun getAllEmergenciesData(): MutableLiveData<EmergencyDataClass> {

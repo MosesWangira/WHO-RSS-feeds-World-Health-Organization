@@ -38,8 +38,10 @@ class NewsViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun setAdapterData(data: List<NewsItem>) {
-        adapter.setDataList(data)
-        adapter.notifyDataSetChanged()
+        adapter.apply {
+            setDataList(data)
+            notifyDataSetChanged()
+        }
     }
 
     fun getAllNewsData(): MutableLiveData<NewsDataClass> {
