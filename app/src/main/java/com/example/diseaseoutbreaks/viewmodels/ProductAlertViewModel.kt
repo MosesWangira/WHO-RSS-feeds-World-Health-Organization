@@ -21,7 +21,7 @@ class ProductAlertViewModel(application: Application) : AndroidViewModel(applica
     /**
      *  LiveData gives us updated words when they change.
      * */
-    var allMedicalProduct: MutableLiveData<ProductAlertDataClass>
+    private var allMedicalProduct: MutableLiveData<ProductAlertDataClass>
 
     private var adapter: ProductAlertAdapter
 

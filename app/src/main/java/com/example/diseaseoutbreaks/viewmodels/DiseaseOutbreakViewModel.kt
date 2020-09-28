@@ -22,7 +22,7 @@ class DiseaseOutbreakViewModel(application: Application) : AndroidViewModel(appl
     /**
      *  LiveData gives us updated words when they change.
      * */
-    var allDiseases: MutableLiveData<DiseaseDataClass>
+    private var allDiseases: MutableLiveData<DiseaseDataClass>
 
     private var adapter: DiseasesAdapter
 

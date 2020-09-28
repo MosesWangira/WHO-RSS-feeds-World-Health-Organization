@@ -22,7 +22,7 @@ class EmergencyViewModel(application: Application) : AndroidViewModel(applicatio
     /**
      *  LiveData gives us updated words when they change.
      * */
-    var allEmergencies: MutableLiveData<EmergencyDataClass>
+    private var allEmergencies: MutableLiveData<EmergencyDataClass>
 
     private var adapter: EmergencyAdapter
 
