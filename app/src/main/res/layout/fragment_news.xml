@@ -1,27 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="fragmentNewsViewModel"
-            type="com.example.diseaseoutbreaks.ui.news.NewsViewModel" />
+            type="com.example.diseaseoutbreaks.viewmodels.NewsViewModel" />
     </data>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:layout_marginBottom="50dp"
+        android:orientation="vertical"
         tools:context=".ui.news.News">
+
+<!--        <ImageView-->
+<!--            android:id="@+id/regionLoad"-->
+<!--            android:layout_width="70dp"-->
+<!--            android:layout_height="70dp"-->
+<!--            app:srcCompat="@drawable/loading_ic"-->
+<!--            android:layout_centerInParent="true"/>-->
+
+        <!-- Empty view for the list -->
+<!--        <RelativeLayout-->
+<!--            android:id="@+id/empty_view"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_centerInParent="true">-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/empty_shelter_image"-->
+<!--                android:layout_width="80dp"-->
+<!--                android:layout_height="80dp"-->
+<!--                android:layout_centerHorizontal="true"-->
+<!--                app:srcCompat="@drawable/no_internet"/>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/empty_title_text"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_below="@+id/empty_shelter_image"-->
+<!--                android:layout_centerHorizontal="true"-->
+<!--                android:paddingTop="16dp"-->
+<!--                android:text="No Internet Connection Available"-->
+<!--                android:textAppearance="?android:textAppearanceMedium"/>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/empty_subtitle_text"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_below="@+id/empty_title_text"-->
+<!--                android:layout_centerHorizontal="true"-->
+<!--                android:fontFamily="sans-serif"-->
+<!--                android:paddingTop="8dp"-->
+<!--                android:text="@string/connect_to_internet"-->
+<!--                android:textAppearance="?android:textAppearanceSmall"-->
+<!--                android:textColor="#A2AAB0"/>-->
+
+
+<!--        </RelativeLayout>-->
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/newsRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:setAdapter="@{fragmentNewsViewModel.getMyAdapter()}"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:setAdapter="@{fragmentNewsViewModel.getMyAdapter()}" />
 
-    </LinearLayout>
+    </RelativeLayout>
 </layout>

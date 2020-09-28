@@ -1,6 +1,6 @@
 @file:Suppress("DEPRECATION")
 
-package com.example.diseaseoutbreaks.functions
+package com.example.diseaseoutbreaks.util
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -8,6 +8,7 @@ import android.app.AlertDialog
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.Drawable
+import android.net.ConnectivityManager
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
@@ -16,6 +17,7 @@ import com.google.android.material.snackbar.Snackbar
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
+
 
 /**
  * Toast message
@@ -88,5 +90,15 @@ fun getCurrentDateTime(): String {
     val dateFormat: DateFormat? = SimpleDateFormat("dd MMM,yyyy HH:mm")
     val date = Date()
     return dateFormat!!.format(date)
+}
+
+/**
+ * Check for internet connectivity
+ * */
+fun isNetworkAvailable(context: Context): Boolean {
+    val connectivityManager =
+        context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+    val activeNetworkInfo = connectivityManager.activeNetworkInfo
+    return (activeNetworkInfo != null && activeNetworkInfo.isConnected)
 }
 

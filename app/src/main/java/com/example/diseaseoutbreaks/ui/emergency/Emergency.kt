@@ -13,11 +13,9 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.diseaseoutbreaks.R
 import com.example.diseaseoutbreaks.data.Model.emergency.EmergencyDataClass
-import com.example.diseaseoutbreaks.data.Model.maternal.MaternalDataClass
 import com.example.diseaseoutbreaks.databinding.FragmentEmergencyBinding
-import com.example.diseaseoutbreaks.databinding.FragmentMaternalBinding
-import com.example.diseaseoutbreaks.functions.toast
-import com.example.diseaseoutbreaks.ui.maternal.MaternalViewModel
+import com.example.diseaseoutbreaks.util.toast
+import com.example.diseaseoutbreaks.viewmodels.EmergencyViewModel
 
 class Emergency : Fragment() {
 

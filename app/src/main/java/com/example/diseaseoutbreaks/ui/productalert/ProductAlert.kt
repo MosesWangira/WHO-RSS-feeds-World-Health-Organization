@@ -12,12 +12,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.diseaseoutbreaks.R
-import com.example.diseaseoutbreaks.data.Model.news.NewsDataClass
 import com.example.diseaseoutbreaks.data.Model.productalert.ProductAlertDataClass
-import com.example.diseaseoutbreaks.databinding.FragmentNewsBinding
 import com.example.diseaseoutbreaks.databinding.FragmentProductAlertBinding
-import com.example.diseaseoutbreaks.functions.toast
-import com.example.diseaseoutbreaks.ui.news.NewsViewModel
+import com.example.diseaseoutbreaks.util.toast
+import com.example.diseaseoutbreaks.viewmodels.ProductAlertViewModel
 
 
 class ProductAlert : Fragment() {

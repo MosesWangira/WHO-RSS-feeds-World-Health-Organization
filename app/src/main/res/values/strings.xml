@@ -14,4 +14,6 @@
     <string name="feature_stories">Stories</string>
     <string name="emergency_news">Emergency</string>
     <string name="child_health">Child Health</string>
+    <string name="connect_to_internet">Connect to internet</string>
+    <string name="refresh">refresh</string>
 </resources>

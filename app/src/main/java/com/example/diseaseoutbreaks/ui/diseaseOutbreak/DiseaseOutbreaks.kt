@@ -14,7 +14,8 @@ import androidx.lifecycle.ViewModelProviders
 import com.example.diseaseoutbreaks.R
 import com.example.diseaseoutbreaks.data.Model.diseases.DiseaseDataClass
 import com.example.diseaseoutbreaks.databinding.FragmentDiseaseOutbreaksBinding
-import com.example.diseaseoutbreaks.functions.toast
+import com.example.diseaseoutbreaks.util.toast
+import com.example.diseaseoutbreaks.viewmodels.DiseaseOutbreakViewModel
 
 
 class DiseaseOutbreaks : Fragment() {

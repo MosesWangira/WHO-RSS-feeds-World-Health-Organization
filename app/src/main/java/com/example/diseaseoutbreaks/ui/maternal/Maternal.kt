@@ -12,12 +12,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.diseaseoutbreaks.R
-import com.example.diseaseoutbreaks.data.Model.diseases.DiseaseDataClass
 import com.example.diseaseoutbreaks.data.Model.maternal.MaternalDataClass
 import com.example.diseaseoutbreaks.databinding.FragmentMaternalBinding
-import com.example.diseaseoutbreaks.functions.toast
-import com.example.diseaseoutbreaks.ui.diseaseOutbreak.DiseaseOutbreakViewModel
-import com.example.diseaseoutbreaks.ui.news.NewsViewModel
+import com.example.diseaseoutbreaks.util.toast
 
 class Maternal : Fragment() {
 

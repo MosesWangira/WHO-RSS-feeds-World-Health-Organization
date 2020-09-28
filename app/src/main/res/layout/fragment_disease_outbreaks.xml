@@ -6,7 +6,7 @@
     <data>
         <variable
             name="fragmentDiseaseViewModel"
-            type="com.example.diseaseoutbreaks.ui.diseaseOutbreak.DiseaseOutbreakViewModel" />
+            type="com.example.diseaseoutbreaks.viewmodels.DiseaseOutbreakViewModel" />
     </data>
 
     <LinearLayout

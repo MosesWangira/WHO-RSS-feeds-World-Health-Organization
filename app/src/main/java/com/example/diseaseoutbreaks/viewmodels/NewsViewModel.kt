@@ -1,4 +1,4 @@
-package com.example.diseaseoutbreaks.ui.news
+package com.example.diseaseoutbreaks.viewmodels
 
 import android.app.Application
 import android.util.Log

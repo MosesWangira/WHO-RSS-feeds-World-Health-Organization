@@ -14,7 +14,8 @@ import androidx.lifecycle.ViewModelProviders
 import com.example.diseaseoutbreaks.R
 import com.example.diseaseoutbreaks.data.Model.news.NewsDataClass
 import com.example.diseaseoutbreaks.databinding.FragmentNewsBinding
-import com.example.diseaseoutbreaks.functions.toast
+import com.example.diseaseoutbreaks.util.toast
+import com.example.diseaseoutbreaks.viewmodels.NewsViewModel
 
 class News : Fragment() {
 
@@ -36,8 +37,8 @@ class News : Fragment() {
         binding.fragmentNewsViewModel = viewModel
         binding.lifecycleOwner = this
 
-        makeApiCall()
 
+        makeApiCall()
         return binding.root
     }
 
@@ -53,10 +54,11 @@ class News : Fragment() {
                 val animation: LayoutAnimationController =
                     AnimationUtils.loadLayoutAnimation(requireContext(), resId)
                 binding.newsRecyclerView.layoutAnimation = animation
+
                 viewModel.setAdapterData(it.items)
 
             } else {
-                requireContext().toast("Error Fetching data")
+                requireContext().toast("Error retrieving data")
             }
         })
         viewModel.fetchNews()
