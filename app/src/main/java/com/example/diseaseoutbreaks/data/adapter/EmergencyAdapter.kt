@@ -5,10 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.diseaseoutbreaks.R
 import com.example.diseaseoutbreaks.data.Model.emergency.EmergencyDataClass
 import com.example.diseaseoutbreaks.data.Model.emergency.EmergencyItem
-import kotlinx.android.synthetic.main.list_item_emergency.view.*
+import kotlinx.android.synthetic.main.list_item_image_left.view.*
+import kotlinx.android.synthetic.main.list_item_image_right.view.*
 
 class EmergencyAdapter() :
     RecyclerView.Adapter<EmergencyAdapter.EmergencyViewHolder>() {
@@ -22,7 +24,7 @@ class EmergencyAdapter() :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = EmergencyViewHolder(
         LayoutInflater.from(parent.context).inflate(
-            R.layout.list_item_emergency,
+            R.layout.list_item_image_right,
             parent,
             false
         )
@@ -36,9 +38,16 @@ class EmergencyAdapter() :
 
         val emergency = items.items[position]
 
-        holder.view.emergencyTitle.text = emergency.title
-        holder.view.emergencyPublicationDate.text = "Publication Date : ${emergency.pubDate}"
-        holder.view.emergencyDescription.text = emergency.description
+        holder.view.title.text = emergency.title
+        holder.view.publication_date.text = "Publication Date : ${emergency.pubDate}"
+        holder.view.description.text = emergency.description
+
+        Glide
+            .with(holder.view.context)
+            .load(R.drawable.siren)
+            .centerCrop()
+            .placeholder(R.drawable.siren)
+            .into(holder.view.imageRight)
     }
 
     class EmergencyViewHolder(val view: View) : RecyclerView.ViewHolder(view)
