@@ -11,6 +11,7 @@ import android.view.animation.LayoutAnimationController
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.RecyclerView
 import com.example.diseaseoutbreaks.R
 import com.example.diseaseoutbreaks.data.Model.productalert.ProductAlertDataClass
 import com.example.diseaseoutbreaks.databinding.FragmentProductAlertBinding
@@ -50,11 +51,17 @@ class ProductAlert : Fragment() {
                 /**
                  * update the adapter
                  * */
-                binding.productRecyclerView.hasFixedSize()
                 val resId: Int = R.anim.layout_animation_slide_right
                 val animation: LayoutAnimationController =
                     AnimationUtils.loadLayoutAnimation(requireContext(), resId)
-                binding.productRecyclerView.layoutAnimation = animation
+
+                val recyclerView : RecyclerView = binding.productRecyclerView
+
+                recyclerView.apply {
+                    hasFixedSize()
+                    layoutAnimation = animation
+                }
+
                 viewModel.setAdapterData(it.items)
 
             } else {

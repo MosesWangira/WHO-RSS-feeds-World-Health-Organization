@@ -11,6 +11,7 @@ import android.view.animation.LayoutAnimationController
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.RecyclerView
 import com.example.diseaseoutbreaks.R
 import com.example.diseaseoutbreaks.data.Model.news.NewsDataClass
 import com.example.diseaseoutbreaks.databinding.FragmentNewsBinding
@@ -48,11 +49,16 @@ class News : Fragment() {
                 /**
                  * update the adapter
                  * */
-                binding.newsRecyclerView.hasFixedSize()
                 val resId: Int = R.anim.layout_animation_slide_right
                 val animation: LayoutAnimationController =
                     AnimationUtils.loadLayoutAnimation(requireContext(), resId)
-                binding.newsRecyclerView.layoutAnimation = animation
+
+                val recyclerView: RecyclerView = binding.newsRecyclerView
+
+                recyclerView.apply {
+                    hasFixedSize()
+                    layoutAnimation = animation
+                }
 
                 viewModel.setAdapterData(it.items)
 

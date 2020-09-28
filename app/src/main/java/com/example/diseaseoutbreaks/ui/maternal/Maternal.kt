@@ -15,6 +15,7 @@ import com.example.diseaseoutbreaks.R
 import com.example.diseaseoutbreaks.data.Model.maternal.MaternalDataClass
 import com.example.diseaseoutbreaks.databinding.FragmentMaternalBinding
 import com.example.diseaseoutbreaks.util.toast
+import com.example.diseaseoutbreaks.viewmodels.MaternalViewModel
 
 class Maternal : Fragment() {
 

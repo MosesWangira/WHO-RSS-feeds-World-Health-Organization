@@ -7,7 +7,7 @@
 
         <variable
             name="fragmentMaternalViewModel"
-            type="com.example.diseaseoutbreaks.ui.maternal.MaternalViewModel" />
+            type="com.example.diseaseoutbreaks.viewmodels.MaternalViewModel" />
     </data>
 
     <LinearLayout
