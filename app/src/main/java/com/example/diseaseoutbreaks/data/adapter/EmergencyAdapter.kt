@@ -9,7 +9,6 @@ import com.bumptech.glide.Glide
 import com.example.diseaseoutbreaks.R
 import com.example.diseaseoutbreaks.data.Model.emergency.EmergencyDataClass
 import com.example.diseaseoutbreaks.data.Model.emergency.EmergencyItem
-import kotlinx.android.synthetic.main.list_item_image_left.view.*
 import kotlinx.android.synthetic.main.list_item_image_right.view.*
 
 class EmergencyAdapter() :

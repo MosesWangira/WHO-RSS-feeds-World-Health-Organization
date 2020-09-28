@@ -37,12 +37,11 @@ class News : Fragment() {
         binding.fragmentNewsViewModel = viewModel
         binding.lifecycleOwner = this
 
-
-        makeApiCall()
+        makeApiCallCoroutine()
         return binding.root
     }
 
-    private fun makeApiCall(): NewsViewModel {
+    private fun makeApiCallCoroutine(): NewsViewModel{
         @Suppress("DEPRECATION")
         viewModel.getAllNewsData().observe(this, Observer<NewsDataClass> {
             if (it != null) {
@@ -61,7 +60,7 @@ class News : Fragment() {
                 requireContext().toast("Error retrieving data")
             }
         })
-        viewModel.fetchNews()
+        viewModel.fetchNewsInCoroutine()
 
         return viewModel
     }

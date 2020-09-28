@@ -39,12 +39,12 @@ class DiseaseOutbreaks : Fragment() {
         binding.fragmentDiseaseViewModel = viewModel
         binding.lifecycleOwner = this
 
-        makeApiCall()
+        makeApiCallCoroutines()
 
         return binding.root
     }
 
-    private fun makeApiCall(): DiseaseOutbreakViewModel {
+    private fun makeApiCallCoroutines(): DiseaseOutbreakViewModel{
         @Suppress("DEPRECATION")
         viewModel.getAllDiseaseOutBreaks().observe(this, Observer<DiseaseDataClass> {
             if (it != null) {
@@ -62,7 +62,7 @@ class DiseaseOutbreaks : Fragment() {
                 requireContext().toast("Error Fetching data")
             }
         })
-        viewModel.fetchDiseases()
+        viewModel.fetchDiseasesInCoroutine()
 
         return viewModel
     }

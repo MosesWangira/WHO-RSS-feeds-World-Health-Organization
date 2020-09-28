@@ -4,12 +4,16 @@ import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.example.diseaseoutbreaks.data.Model.emergency.EmergencyDataClass
 import com.example.diseaseoutbreaks.data.Model.emergency.EmergencyItem
 import com.example.diseaseoutbreaks.data.adapter.EmergencyAdapter
 import com.example.diseaseoutbreaks.data.network.RetrofitBuilder
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Response
+import retrofit2.await
+import java.io.IOException
 
 class EmergencyViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -41,24 +45,13 @@ class EmergencyViewModel(application: Application) : AndroidViewModel(applicatio
         return allEmergencies
     }
 
-    fun fetchEmergencyData() {
-        val fetchingDiseases = RetrofitBuilder.apiService.getEmergency()
-        fetchingDiseases.enqueue(object : retrofit2.Callback<EmergencyDataClass> {
-            override fun onFailure(call: Call<EmergencyDataClass>, t: Throwable) {
-                allEmergencies.postValue(null)
-            }
-
-            override fun onResponse(
-                call: Call<EmergencyDataClass>,
-                response: Response<EmergencyDataClass>
-            ) {
-                if (response.isSuccessful) {
-                    allEmergencies.postValue(response.body())
-                } else {
-                    allEmergencies.postValue(null)
-                }
-            }
-
-        })
+    fun fetchEmergencyDataInCoroutine() = viewModelScope.launch {
+        try{
+            val fetchingEmergency = RetrofitBuilder.apiService.getEmergency().await()
+            allEmergencies.postValue(fetchingEmergency)
+        }catch (networkError: IOException){
+            //show infinite loading spinner
+            allEmergencies.postValue(null)
+        }
     }
 }

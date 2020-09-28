@@ -38,12 +38,12 @@ class Emergency : Fragment() {
         binding.fragmentEmergencyViewModel = viewModel
         binding.lifecycleOwner = this
 
-        makeApiCall()
+        makeApiCallInCoroutines()
 
         return binding.root
     }
 
-    private fun makeApiCall(): EmergencyViewModel {
+    private fun makeApiCallInCoroutines(): EmergencyViewModel{
         @Suppress("DEPRECATION")
         viewModel.getAllEmergenciesData().observe(this, Observer<EmergencyDataClass> {
             if (it != null) {
@@ -62,7 +62,7 @@ class Emergency : Fragment() {
                 requireContext().toast("Error Fetching data")
             }
         })
-        viewModel.fetchEmergencyData()
+        viewModel.fetchEmergencyDataInCoroutine()
 
         return viewModel
     }

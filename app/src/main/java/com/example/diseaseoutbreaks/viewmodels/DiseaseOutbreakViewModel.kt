@@ -4,12 +4,16 @@ import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.example.diseaseoutbreaks.data.Model.diseases.DiseaseDataClass
 import com.example.diseaseoutbreaks.data.Model.diseases.DiseaseItem
 import com.example.diseaseoutbreaks.data.adapter.DiseasesAdapter
 import com.example.diseaseoutbreaks.data.network.RetrofitBuilder
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Response
+import retrofit2.await
+import java.io.IOException
 
 class DiseaseOutbreakViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -41,21 +45,13 @@ class DiseaseOutbreakViewModel(application: Application) : AndroidViewModel(appl
         return allDiseases
     }
 
-    fun fetchDiseases() {
-        val fetchingDiseases = RetrofitBuilder.apiService.getDiseases()
-        fetchingDiseases.enqueue(object : retrofit2.Callback<DiseaseDataClass> {
-            override fun onFailure(call: Call<DiseaseDataClass>, t: Throwable) {
-                allDiseases.postValue(null)
-            }
-
-            override fun onResponse(call: Call<DiseaseDataClass>, response: Response<DiseaseDataClass>) {
-                if (response.isSuccessful) {
-                    allDiseases.postValue(response.body())
-                } else {
-                    allDiseases.postValue(null)
-                }
-            }
-
-        })
+    fun fetchDiseasesInCoroutine() = viewModelScope.launch {
+        try{
+            val fetchingDiseases = RetrofitBuilder.apiService.getDiseases().await()
+            allDiseases.postValue(fetchingDiseases)
+        }catch (networkError: IOException){
+            //show infinite loading spinner
+            allDiseases.postValue(null)
+        }
     }
 }

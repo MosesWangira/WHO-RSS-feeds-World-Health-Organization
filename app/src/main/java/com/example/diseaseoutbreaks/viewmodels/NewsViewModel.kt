@@ -4,12 +4,16 @@ import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.example.diseaseoutbreaks.data.Model.news.NewsDataClass
 import com.example.diseaseoutbreaks.data.Model.news.NewsItem
 import com.example.diseaseoutbreaks.data.adapter.NewsAdapter
 import com.example.diseaseoutbreaks.data.network.RetrofitBuilder
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Response
+import retrofit2.await
+import java.io.IOException
 
 class NewsViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -18,7 +22,7 @@ class NewsViewModel(application: Application) : AndroidViewModel(application) {
     /**
      *  LiveData gives us updated words when they change.
      * */
-    var allNews: MutableLiveData<NewsDataClass>
+    private var allNews: MutableLiveData<NewsDataClass>
 
     private var adapter: NewsAdapter
 
@@ -41,21 +45,13 @@ class NewsViewModel(application: Application) : AndroidViewModel(application) {
         return allNews
     }
 
-    fun fetchNews() {
-        val fetchingDiseases = RetrofitBuilder.apiService.getNews()
-        fetchingDiseases.enqueue(object : retrofit2.Callback<NewsDataClass> {
-            override fun onFailure(call: Call<NewsDataClass>, t: Throwable) {
-                allNews.postValue(null)
-            }
-
-            override fun onResponse(call: Call<NewsDataClass>, response: Response<NewsDataClass>) {
-                if (response.isSuccessful) {
-                    allNews.postValue(response.body())
-                } else {
-                    allNews.postValue(null)
-                }
-            }
-
-        })
+    fun fetchNewsInCoroutine() = viewModelScope.launch {
+        try{
+            val fetchingNews = RetrofitBuilder.apiService.getNews().await()
+            allNews.postValue(fetchingNews)
+        }catch (networkError: IOException){
+            //show infinite loading spinner
+            allNews.postValue(null)
+        }
     }
 }

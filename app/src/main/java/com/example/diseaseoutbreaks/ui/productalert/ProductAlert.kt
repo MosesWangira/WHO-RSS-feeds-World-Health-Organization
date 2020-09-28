@@ -38,12 +38,12 @@ class ProductAlert : Fragment() {
         binding.fragmentProductViewModel = viewModel
         binding.lifecycleOwner = this
 
-        makeApiCall()
+        makeApiCallInCoroutines()
 
         return binding.root
     }
 
-    private fun makeApiCall(): ProductAlertViewModel {
+    private fun makeApiCallInCoroutines(): ProductAlertViewModel{
         @Suppress("DEPRECATION")
         viewModel.getAllMedicalProducts().observe(this, Observer<ProductAlertDataClass> {
             if (it != null) {
@@ -61,7 +61,7 @@ class ProductAlert : Fragment() {
                 requireContext().toast("Error Fetching data")
             }
         })
-        viewModel.fetchMedicalProducts()
+        viewModel.fetchProductInCoroutine()
 
         return viewModel
     }
