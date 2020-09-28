@@ -49,7 +49,6 @@ class Emergency : Fragment() {
                 /**
                  * update the adapter
                  * */
-
                 binding.emergencyRecyclerView.apply {
                     hasFixedSize()
                     layoutAnimation = animate(requireContext(), R.anim.layout_animation_from_bottom)

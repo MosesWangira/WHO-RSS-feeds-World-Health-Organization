@@ -50,7 +50,6 @@ class DiseaseOutbreakViewModel(application: Application) : AndroidViewModel(appl
             val fetchingDiseases = RetrofitBuilder.apiService.getDiseases().await()
             allDiseases.postValue(fetchingDiseases)
         }catch (networkError: IOException){
-            //show infinite loading spinner
             allDiseases.postValue(null)
         }
     }

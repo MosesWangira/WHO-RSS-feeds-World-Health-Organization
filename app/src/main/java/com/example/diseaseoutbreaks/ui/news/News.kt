@@ -47,7 +47,6 @@ class News : Fragment() {
                 /**
                  * update the adapter
                  * */
-
                 binding.newsRecyclerView.apply {
                     hasFixedSize()
                     layoutAnimation = animate(requireContext(), R.anim.layout_animation_slide_right)

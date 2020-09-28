@@ -50,7 +50,6 @@ class EmergencyViewModel(application: Application) : AndroidViewModel(applicatio
             val fetchingEmergency = RetrofitBuilder.apiService.getEmergency().await()
             allEmergencies.postValue(fetchingEmergency)
         }catch (networkError: IOException){
-            //show infinite loading spinner
             allEmergencies.postValue(null)
         }
     }

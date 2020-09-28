@@ -50,7 +50,6 @@ class DiseaseOutbreaks : Fragment() {
                 /**
                  * update the adapter
                  * */
-
                 binding.recyclerView.apply {
                     hasFixedSize()
                     layoutAnimation = animate(requireContext(), R.anim.layout_animation_fall_down)

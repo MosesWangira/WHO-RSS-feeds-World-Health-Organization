@@ -53,7 +53,6 @@ class NewsViewModel(application: Application) : AndroidViewModel(application) {
             val fetchingNews = RetrofitBuilder.apiService.getNews().await()
             allNews.postValue(fetchingNews)
         }catch (networkError: IOException){
-            //show infinite loading spinner
             allNews.postValue(null)
         }
     }

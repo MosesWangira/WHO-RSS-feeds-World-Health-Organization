@@ -50,7 +50,6 @@ class ProductAlertViewModel(application: Application) : AndroidViewModel(applica
             val fetchingProduct = RetrofitBuilder.apiService.getMedicalProductNews().await()
             allMedicalProduct.postValue(fetchingProduct)
         }catch (networkError: IOException){
-            //show infinite loading spinner
             allMedicalProduct.postValue(null)
         }
     }
