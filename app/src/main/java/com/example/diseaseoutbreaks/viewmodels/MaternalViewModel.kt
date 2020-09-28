@@ -12,9 +12,6 @@ import retrofit2.Call
 import retrofit2.Response
 
 class MaternalViewModel(application: Application) : AndroidViewModel(application) {
-
-    private val context = getApplication<Application>().applicationContext
-
     /**
      *  LiveData gives us updated data when they change.
      * */

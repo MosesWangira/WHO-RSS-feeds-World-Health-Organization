@@ -16,8 +16,6 @@ import retrofit2.await
 import java.io.IOException
 
 class ProductAlertViewModel(application: Application) : AndroidViewModel(application) {
-    private val context = getApplication<Application>().applicationContext
-
     /**
      *  LiveData gives us updated data when they change.
      * */
