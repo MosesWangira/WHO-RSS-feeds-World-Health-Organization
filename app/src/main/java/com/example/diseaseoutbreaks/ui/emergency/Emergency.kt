@@ -51,11 +51,15 @@ class Emergency : Fragment() {
                  * update the adapter
                  * */
 
-                binding.emergencyRecyclerView.hasFixedSize()
                 val resId: Int = R.anim.layout_animation_slide_right
                 val animation: LayoutAnimationController =
                     AnimationUtils.loadLayoutAnimation(requireContext(), resId)
-                binding.emergencyRecyclerView.layoutAnimation = animation
+
+                binding.emergencyRecyclerView.apply {
+                    hasFixedSize()
+                    layoutAnimation = animation
+                }
+
                 viewModel.setAdapterData(it.items)
 
             } else {

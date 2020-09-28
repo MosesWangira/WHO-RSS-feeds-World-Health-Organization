@@ -53,9 +53,7 @@ class News : Fragment() {
                 val animation: LayoutAnimationController =
                     AnimationUtils.loadLayoutAnimation(requireContext(), resId)
 
-                val recyclerView: RecyclerView = binding.newsRecyclerView
-
-                recyclerView.apply {
+                binding.newsRecyclerView.apply {
                     hasFixedSize()
                     layoutAnimation = animation
                 }

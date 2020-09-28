@@ -51,11 +51,15 @@ class DiseaseOutbreaks : Fragment() {
                 /**
                  * update the adapter
                  * */
-                binding.recyclerView.hasFixedSize()
                 val resId: Int = R.anim.layout_animation_fall_down
                 val animation: LayoutAnimationController =
                     AnimationUtils.loadLayoutAnimation(requireContext(), resId)
-                binding.recyclerView.layoutAnimation = animation
+
+                binding.recyclerView.apply {
+                    hasFixedSize()
+                    layoutAnimation = animation
+                }
+
                 viewModel.setAdapterData(it.items)
 
             } else {

@@ -55,9 +55,7 @@ class ProductAlert : Fragment() {
                 val animation: LayoutAnimationController =
                     AnimationUtils.loadLayoutAnimation(requireContext(), resId)
 
-                val recyclerView : RecyclerView = binding.productRecyclerView
-
-                recyclerView.apply {
+                binding.productRecyclerView.apply {
                     hasFixedSize()
                     layoutAnimation = animation
                 }

@@ -50,14 +50,15 @@ class Maternal : Fragment() {
                 /**
                  * update the adapter
                  * */
-                /**
-                 * update the adapter
-                 * */
-                binding.maternalRecyclerView.hasFixedSize()
                 val resId: Int = R.anim.layout_animation_from_bottom
                 val animation: LayoutAnimationController =
                     AnimationUtils.loadLayoutAnimation(requireContext(), resId)
-                binding.maternalRecyclerView.layoutAnimation = animation
+
+                binding.maternalRecyclerView.apply {
+                    hasFixedSize()
+                    layoutAnimation = animation
+                }
+
                 viewModel.setAdapterData(it.items)
 
             } else {
