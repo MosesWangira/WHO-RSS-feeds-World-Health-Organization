@@ -60,7 +60,7 @@ class News : Fragment(R.layout.fragment_news) {
                     loading.clearAnimation()
                     loading.visibility = GONE
                 }
-                requireContext().toast("Error retrieving data")
+                requireContext().toast("Click refresh icon to load data")
             }
         })
 
