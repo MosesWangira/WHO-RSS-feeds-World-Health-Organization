@@ -12,6 +12,7 @@ import com.example.diseaseoutbreaks.R
 import com.example.diseaseoutbreaks.data.Model.news.NewsDataClass
 import com.example.diseaseoutbreaks.databinding.FragmentNewsBinding
 import com.example.diseaseoutbreaks.util.animate
+import com.example.diseaseoutbreaks.util.rotateAndFadeIn
 import com.example.diseaseoutbreaks.util.toast
 import com.example.diseaseoutbreaks.viewmodels.NewsViewModel
 
@@ -28,7 +29,8 @@ class News : Fragment(R.layout.fragment_news) {
             fragmentNewsViewModel = viewModel
             lifecycleOwner = this@News
             emptyView.visibility = GONE
-            
+            loading.visibility = VISIBLE
+            loading.startAnimation(rotateAndFadeIn(requireContext(), R.anim.rotate_animation ))
         }
 
         makeApiCallCoroutine()
@@ -37,7 +39,11 @@ class News : Fragment(R.layout.fragment_news) {
     private fun makeApiCallCoroutine(): NewsViewModel {
         viewModel.getAllNewsData().observe(viewLifecycleOwner, Observer<NewsDataClass> {
             if (it != null) {
-                binding.emptyView.visibility = GONE
+                binding.apply {
+                    emptyView.visibility = GONE
+                    loading.clearAnimation()
+                    loading.visibility = GONE
+                }
                 /**
                  * update the adapter
                  * */
@@ -49,7 +55,11 @@ class News : Fragment(R.layout.fragment_news) {
                 viewModel.setAdapterData(it.items)
 
             } else {
-                binding.emptyView.visibility = VISIBLE
+                binding.apply {
+                    emptyView.visibility = VISIBLE
+                    loading.clearAnimation()
+                    loading.visibility = GONE
+                }
                 requireContext().toast("Error retrieving data")
             }
         })
