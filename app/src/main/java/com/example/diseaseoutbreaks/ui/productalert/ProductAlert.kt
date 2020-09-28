@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.example.diseaseoutbreaks.R
 import com.example.diseaseoutbreaks.data.Model.productalert.ProductAlertDataClass
@@ -17,30 +18,21 @@ import com.example.diseaseoutbreaks.util.toast
 import com.example.diseaseoutbreaks.viewmodels.ProductAlertViewModel
 
 
-class ProductAlert : Fragment() {
+class ProductAlert : Fragment( R.layout.fragment_product_alert) {
 
     lateinit var binding: FragmentProductAlertBinding
 
     lateinit var viewModel: ProductAlertViewModel
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        binding =
-            DataBindingUtil.inflate(inflater, R.layout.fragment_product_alert, container, false)
-
-        Log.d("Disease: ", "Disease ViewModel Called")
-        @Suppress("DEPRECATION")
-        viewModel = ViewModelProviders.of(this).get(ProductAlertViewModel::class.java)
-
-        binding.fragmentProductViewModel = viewModel
-        binding.lifecycleOwner = this
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding = DataBindingUtil.bind(view)!!
+        viewModel = ViewModelProvider(this).get(ProductAlertViewModel::class.java)
+        binding.apply {
+            fragmentProductViewModel = viewModel
+            lifecycleOwner = this@ProductAlert
+        }
         makeApiCallInCoroutines()
-
-        return binding.root
     }
 
     private fun makeApiCallInCoroutines(): ProductAlertViewModel {

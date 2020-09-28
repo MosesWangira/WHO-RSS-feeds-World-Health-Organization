@@ -2,6 +2,8 @@ package com.example.diseaseoutbreaks.ui.news
 
 import android.os.Bundle
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -25,6 +27,8 @@ class News : Fragment(R.layout.fragment_news) {
         binding.apply {
             fragmentNewsViewModel = viewModel
             lifecycleOwner = this@News
+            emptyView.visibility = GONE
+            
         }
 
         makeApiCallCoroutine()
@@ -33,6 +37,7 @@ class News : Fragment(R.layout.fragment_news) {
     private fun makeApiCallCoroutine(): NewsViewModel {
         viewModel.getAllNewsData().observe(viewLifecycleOwner, Observer<NewsDataClass> {
             if (it != null) {
+                binding.emptyView.visibility = GONE
                 /**
                  * update the adapter
                  * */
@@ -44,6 +49,7 @@ class News : Fragment(R.layout.fragment_news) {
                 viewModel.setAdapterData(it.items)
 
             } else {
+                binding.emptyView.visibility = VISIBLE
                 requireContext().toast("Error retrieving data")
             }
         })

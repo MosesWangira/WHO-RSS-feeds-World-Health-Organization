@@ -1,18 +1,13 @@
 package com.example.diseaseoutbreaks.ui
 
 import android.content.Intent
-import android.graphics.BitmapFactory
 import android.os.Bundle
-import android.util.Log
 import android.view.animation.AnimationUtils
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
-import androidx.palette.graphics.Palette
 import com.example.diseaseoutbreaks.R
 import com.example.diseaseoutbreaks.databinding.ActivitySplashScreenBinding
+import com.example.diseaseoutbreaks.util.rotateAndFadeIn
 
 
 @Suppress("DEPRECATION")
@@ -24,14 +19,9 @@ class SplashScreen : AppCompatActivity() {
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_splash_screen)
 
-        val splashAnimator = AnimationUtils.loadAnimation(
-            this,
-            R.anim.splash_animation
-        )
-
         binding.apply {
-            splashImage.startAnimation(splashAnimator)
-            splashText.startAnimation(splashAnimator)
+            splashImage.startAnimation(rotateAndFadeIn(this@SplashScreen, R.anim.splash_animation))
+            splashText.startAnimation(rotateAndFadeIn(this@SplashScreen, R.anim.splash_animation))
         }
 
         val toLogin = Intent(this, MainActivity::class.java)
