@@ -9,8 +9,7 @@ import com.bumptech.glide.Glide
 import com.example.diseaseoutbreaks.R
 import com.example.diseaseoutbreaks.data.Model.maternal.MaternalDataClass
 import com.example.diseaseoutbreaks.data.Model.maternal.MaternalItem
-import kotlinx.android.synthetic.main.list_item_diseases.view.*
-import kotlinx.android.synthetic.main.list_item_maternal.view.*
+import kotlinx.android.synthetic.main.list_item_image_left.view.*
 
 class MaternalAdapter() :
     RecyclerView.Adapter<MaternalAdapter.MaternalViewHolder>() {
@@ -24,7 +23,7 @@ class MaternalAdapter() :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = MaternalViewHolder(
         LayoutInflater.from(parent.context).inflate(
-            R.layout.list_item_diseases,
+            R.layout.list_item_image_left,
             parent,
             false
         )
@@ -47,7 +46,7 @@ class MaternalAdapter() :
             .load(R.drawable.maternal_place_holder)
             .centerCrop()
             .placeholder(R.drawable.maternal_place_holder)
-            .into(holder.view.diseaseImage)
+            .into(holder.view.imageLeft)
     }
 
     class MaternalViewHolder(val view: View) : RecyclerView.ViewHolder(view)

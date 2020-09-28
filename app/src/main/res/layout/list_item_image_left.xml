@@ -13,23 +13,33 @@
     <LinearLayout
         android:id="@+id/cell_title_view"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
         android:background="@drawable/elavation_background"
         android:clipChildren="false"
         android:clipToPadding="false"
         android:elevation="1dp"
-        android:layout_weight="3"
         android:orientation="horizontal">
 
+        <ImageView
+            android:id="@+id/imageLeft"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
+            app:srcCompat="@drawable/disease_place_holder"
+            />
+
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_weight="2.5"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            tools:ignore="NestedWeights">
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/newsTitle"
+                android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
@@ -40,7 +50,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/newsPublicationDate"
+                android:id="@+id/publication_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
@@ -51,22 +61,10 @@
                 android:textStyle="italic" />
 
         </LinearLayout>
-
-        <ImageView
-            android:id="@+id/newsImage"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_weight="0.5"
-            android:layout_gravity="center"
-            android:padding="5dp"
-            android:layout_marginStart="2dp"
-            android:layout_marginEnd="2dp"
-            app:srcCompat="@drawable/news_paper_place_holder"
-            />
     </LinearLayout>
 
     <TextView
-        android:id="@+id/newsDescription"
+        android:id="@+id/description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"

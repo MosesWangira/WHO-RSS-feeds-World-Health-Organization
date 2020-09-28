@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide
 import com.example.diseaseoutbreaks.R
 import com.example.diseaseoutbreaks.data.Model.diseases.DiseaseDataClass
 import com.example.diseaseoutbreaks.data.Model.diseases.DiseaseItem
-import kotlinx.android.synthetic.main.list_item_diseases.view.*
+import kotlinx.android.synthetic.main.list_item_image_left.view.*
 
 class DiseasesAdapter() :
     RecyclerView.Adapter<DiseasesAdapter.DiseaseViewHolder>() {
@@ -23,7 +23,7 @@ class DiseasesAdapter() :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = DiseaseViewHolder(
         LayoutInflater.from(parent.context).inflate(
-            R.layout.list_item_diseases,
+            R.layout.list_item_image_left,
             parent,
             false
         )
@@ -46,7 +46,7 @@ class DiseasesAdapter() :
             .load(R.drawable.disease_place_holder)
             .centerCrop()
             .placeholder(R.drawable.disease_place_holder)
-            .into(holder.view.diseaseImage)
+            .into(holder.view.imageLeft)
 
     }
 

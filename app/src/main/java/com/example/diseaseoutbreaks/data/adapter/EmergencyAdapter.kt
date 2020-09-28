@@ -8,10 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.diseaseoutbreaks.R
 import com.example.diseaseoutbreaks.data.Model.emergency.EmergencyDataClass
 import com.example.diseaseoutbreaks.data.Model.emergency.EmergencyItem
-import com.example.diseaseoutbreaks.data.Model.maternal.MaternalDataClass
-import com.example.diseaseoutbreaks.data.Model.maternal.MaternalItem
 import kotlinx.android.synthetic.main.list_item_emergency.view.*
-import kotlinx.android.synthetic.main.list_item_maternal.view.*
 
 class EmergencyAdapter() :
     RecyclerView.Adapter<EmergencyAdapter.EmergencyViewHolder>() {
