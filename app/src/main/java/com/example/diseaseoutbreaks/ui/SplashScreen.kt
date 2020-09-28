@@ -29,20 +29,10 @@ class SplashScreen : AppCompatActivity() {
             R.anim.splash_animation
         )
 
-        val splashImage: ImageView = findViewById(R.id.splashImage)
-        val splashText: TextView = findViewById(R.id.splashText)
-
-        splashImage.startAnimation(splashAnimator)
-        splashText.startAnimation(splashAnimator)
-
-//        val bitmap = BitmapFactory.decodeResource(resources, R.drawable.who_image)
-//
-//        Palette.Builder(bitmap).generate { it?.let { palette ->
-//            val dominantColor = palette.getDominantColor(ContextCompat.getColor(this, R.color.white))
-//            binding.splashBackground.setBackgroundColor(ContextCompat.getColor(this, dominantColor))
-//            Log.d("Color", dominantColor.toString())
-//        } }
-
+        binding.apply {
+            splashImage.startAnimation(splashAnimator)
+            splashText.startAnimation(splashAnimator)
+        }
 
         val toLogin = Intent(this, MainActivity::class.java)
         //running on thread
