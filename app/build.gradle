@@ -84,5 +84,7 @@ dependencies {
 
     implementation 'androidx.palette:palette:1.0.0'
 
+    //circular image view
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 
 }
