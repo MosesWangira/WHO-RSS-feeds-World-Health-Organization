@@ -37,9 +37,11 @@ class DiseasesAdapter() :
 
         val disease = items.items[position]
 
-        holder.view.title.text = disease.title
-        holder.view.publication_date.text = "Publication Date : ${disease.pubDate}"
-        holder.view.description.text = disease.description
+        holder.view.apply {
+            title.text = disease.title
+            publication_date.text = "Publication Date : ${disease.pubDate}"
+            description.text = disease.description
+        }
 
         Glide
             .with(holder.view.context)

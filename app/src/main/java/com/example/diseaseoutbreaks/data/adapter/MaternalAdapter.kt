@@ -37,9 +37,12 @@ class MaternalAdapter() :
 
         val maternal = items.items[position]
 
-        holder.view.title.text = maternal.title
-        holder.view.publication_date.text = "Publication Date : ${maternal.pubDate}"
-        holder.view.description.text = maternal.description
+        holder.view.apply {
+            title.text = maternal.title
+            publication_date.text = "Publication Date : ${maternal.pubDate}"
+            description.text = maternal.description
+
+        }
 
         Glide
             .with(holder.view.context)

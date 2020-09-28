@@ -37,9 +37,11 @@ class EmergencyAdapter() :
 
         val emergency = items.items[position]
 
-        holder.view.titleRight.text = emergency.title
-        holder.view.publicationDateRight.text = "Publication Date : ${emergency.pubDate}"
-        holder.view.descriptionRight.text = emergency.description
+        holder.view.apply {
+            titleRight.text = emergency.title
+            publicationDateRight.text = "Publication Date : ${emergency.pubDate}"
+            descriptionRight.text = emergency.description
+        }
 
         Glide
             .with(holder.view.context)

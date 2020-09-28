@@ -37,10 +37,12 @@ class NewsAdapter() :
 
         val news = items.items[position]
 
-        holder.view.titleRight.text = news.title
-        holder.view.publicationDateRight.text = "Publication Date : ${news.pubDate}"
-        holder.view.descriptionRight.text = news.description
-        
+        holder.view.apply {
+            titleRight.text = news.title
+            publicationDateRight.text = "Publication Date : ${news.pubDate}"
+            descriptionRight.text = news.description
+        }
+
         Glide
             .with(holder.view.context)
             .load(R.drawable.news_paper_place_holder)

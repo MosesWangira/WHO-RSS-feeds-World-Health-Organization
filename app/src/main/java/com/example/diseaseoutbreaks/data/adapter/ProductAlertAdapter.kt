@@ -38,9 +38,11 @@ class ProductAlertAdapter() :
 
         val product = items.items[position]
 
-        holder.view.title.text = product.title
-        holder.view.publication_date.text = "Publication Date : ${product.pubDate}"
-        holder.view.description.text = product.description
+        holder.view.apply {
+            title.text = product.title
+            publication_date.text = "Publication Date : ${product.pubDate}"
+            description.text = product.description
+        }
 
         Glide
             .with(holder.view.context)
