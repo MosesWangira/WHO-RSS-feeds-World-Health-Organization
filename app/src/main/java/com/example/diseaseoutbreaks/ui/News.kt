@@ -12,6 +12,7 @@ import com.example.diseaseoutbreaks.R
 import com.example.diseaseoutbreaks.data.Model.news.NewsDataClass
 import com.example.diseaseoutbreaks.databinding.FragmentNewsBinding
 import com.example.diseaseoutbreaks.util.animate
+import com.example.diseaseoutbreaks.util.hideLoadingProgress
 import com.example.diseaseoutbreaks.util.rotateAndFadeIn
 import com.example.diseaseoutbreaks.util.toast
 import com.example.diseaseoutbreaks.viewmodels.NewsViewModel
@@ -58,7 +59,7 @@ class News : Fragment(R.layout.fragment_news) {
             } else {
                 binding.apply {
                     emptyView.visibility = VISIBLE
-                    hideLoadingProgress()
+                    hideLoadingProgress(binding.loading)
                 }
                 requireContext().toast("Click refresh icon to load data")
             }
@@ -67,10 +68,4 @@ class News : Fragment(R.layout.fragment_news) {
         return viewModel
     }
 
-    private fun hideLoadingProgress(){
-        binding.loading.apply {
-            clearAnimation()
-            visibility = GONE
-        }
-    }
 }
