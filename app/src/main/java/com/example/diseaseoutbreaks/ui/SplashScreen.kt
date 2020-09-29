@@ -34,10 +34,6 @@ class SplashScreen : AppCompatActivity() {
                     e.printStackTrace()
                 } finally {
                     startActivity(toLogin)
-                    binding.apply {
-                        splashImage.clearAnimation()
-                        splashText.clearAnimation()
-                    }
                     finish()
                 }
             }
