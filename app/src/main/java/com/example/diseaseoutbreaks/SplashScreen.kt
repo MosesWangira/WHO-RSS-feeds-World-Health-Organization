@@ -1,11 +1,9 @@
-package com.example.diseaseoutbreaks.ui
+package com.example.diseaseoutbreaks
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import com.example.diseaseoutbreaks.R
 import com.example.diseaseoutbreaks.databinding.ActivitySplashScreenBinding
 import com.example.diseaseoutbreaks.util.rotateAndFadeIn
 

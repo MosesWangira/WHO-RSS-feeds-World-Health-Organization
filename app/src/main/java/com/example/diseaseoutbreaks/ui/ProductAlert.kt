@@ -1,28 +1,25 @@
-package com.example.diseaseoutbreaks.ui.productalert
+package com.example.diseaseoutbreaks.ui
 
 import android.os.Bundle
-import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import com.example.diseaseoutbreaks.R
 import com.example.diseaseoutbreaks.data.Model.productalert.ProductAlertDataClass
 import com.example.diseaseoutbreaks.databinding.FragmentProductAlertBinding
 import com.example.diseaseoutbreaks.util.animate
+import com.example.diseaseoutbreaks.util.rotateAndFadeIn
 import com.example.diseaseoutbreaks.util.toast
 import com.example.diseaseoutbreaks.viewmodels.ProductAlertViewModel
 
 
-class ProductAlert : Fragment( R.layout.fragment_product_alert) {
+class ProductAlert : Fragment(R.layout.fragment_product_alert) {
 
-    lateinit var binding: FragmentProductAlertBinding
+    private lateinit var binding: FragmentProductAlertBinding
 
-    lateinit var viewModel: ProductAlertViewModel
+    private lateinit var viewModel: ProductAlertViewModel
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -31,14 +28,22 @@ class ProductAlert : Fragment( R.layout.fragment_product_alert) {
         binding.apply {
             fragmentProductViewModel = viewModel
             lifecycleOwner = this@ProductAlert
+            emptyView.visibility = View.GONE
+            loading.apply {
+                visibility = View.VISIBLE
+                startAnimation(rotateAndFadeIn(requireContext(), R.anim.rotate_animation))
+            }
         }
         makeApiCallInCoroutines()
     }
 
     private fun makeApiCallInCoroutines(): ProductAlertViewModel {
-        @Suppress("DEPRECATION")
-        viewModel.getAllMedicalProducts().observe(this, Observer<ProductAlertDataClass> {
+        viewModel.getAllMedicalProducts().observe(viewLifecycleOwner, Observer<ProductAlertDataClass> {
             if (it != null) {
+                binding.apply {
+                    emptyView.visibility = View.GONE
+                    hideLoadingProgress()
+                }
                 /**
                  * update the adapter
                  * */
@@ -50,10 +55,22 @@ class ProductAlert : Fragment( R.layout.fragment_product_alert) {
                 viewModel.setAdapterData(it.items)
 
             } else {
-                requireContext().toast("Error Fetching data")
+                binding.apply {
+                    emptyView.visibility = View.VISIBLE
+                    hideLoadingProgress()
+                }
+
+                requireContext().toast("Click refresh icon to load data")
             }
         })
 
         return viewModel
+    }
+
+    private fun hideLoadingProgress(){
+        binding.loading.apply {
+            clearAnimation()
+            visibility = View.GONE
+        }
     }
 }

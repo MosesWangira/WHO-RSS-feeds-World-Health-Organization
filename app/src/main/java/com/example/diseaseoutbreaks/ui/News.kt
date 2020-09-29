@@ -1,4 +1,4 @@
-package com.example.diseaseoutbreaks.ui.news
+package com.example.diseaseoutbreaks.ui
 
 import android.os.Bundle
 import android.view.View
@@ -18,8 +18,8 @@ import com.example.diseaseoutbreaks.viewmodels.NewsViewModel
 
 class News : Fragment(R.layout.fragment_news) {
 
-    lateinit var binding: FragmentNewsBinding
-    lateinit var viewModel: NewsViewModel
+    private lateinit var binding: FragmentNewsBinding
+    private lateinit var viewModel: NewsViewModel
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

@@ -9,12 +9,61 @@
             type="com.example.diseaseoutbreaks.viewmodels.DiseaseOutbreakViewModel" />
     </data>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_marginBottom="50dp"
-        tools:context=".ui.diseaseOutbreak.DiseaseOutbreaks">
+        tools:context=".ui.DiseaseOutbreaks">
+
+        <ImageView
+            android:id="@+id/loading"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            app:srcCompat="@drawable/loading_ic"
+            android:layout_centerInParent="true"
+            tools:ignore="ContentDescription" />
+
+        <!--         Empty view for the list -->
+        <RelativeLayout
+            android:id="@+id/emptyView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
+            <ImageView
+                android:id="@+id/wifiImage"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_centerHorizontal="true"
+                app:srcCompat="@drawable/no_internet"/>
+
+            <TextView
+                android:id="@+id/noInternet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/wifiImage"
+                android:layout_centerHorizontal="true"
+                android:paddingTop="16dp"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:text="No Internet Connection Available"
+                android:textAppearance="?android:textAppearanceMedium"/>
+
+            <TextView
+                android:id="@+id/empty_subtitle_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/noInternet"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="sans-serif"
+                android:paddingTop="8dp"
+                android:text="@string/connect_to_internet"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textColor="#A2AAB0"/>
+
+
+        </RelativeLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
@@ -23,5 +72,5 @@
             app:setAdapter="@{fragmentDiseaseViewModel.getMyAdapter()}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-    </LinearLayout>
+    </RelativeLayout>
 </layout>

@@ -7,27 +7,27 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.diseaseoutbreaks.ui.news.News"
+        android:name="com.example.diseaseoutbreaks.ui.News"
         android:label="WHO news"
         tools:layout="@layout/fragment_news" />
     <fragment
         android:id="@+id/diseaseOutbreaks"
-        android:name="com.example.diseaseoutbreaks.ui.diseaseOutbreak.DiseaseOutbreaks"
+        android:name="com.example.diseaseoutbreaks.ui.DiseaseOutbreaks"
         android:label="Disease outbreak news"
         tools:layout="@layout/fragment_disease_outbreaks" />
     <fragment
         android:id="@+id/maternal"
-        android:name="com.example.diseaseoutbreaks.ui.maternal.Maternal"
+        android:name="com.example.diseaseoutbreaks.ui.Maternal"
         android:label="Maternal,NewbornChild &amp; health"
         tools:layout="@layout/fragment_maternal"/>
     <fragment
         android:id="@+id/emergency"
-        android:name="com.example.diseaseoutbreaks.ui.emergency.Emergency"
+        android:name="com.example.diseaseoutbreaks.ui.Emergency"
         android:label="Emergencies and disasters"
         tools:layout="@layout/fragment_emergency"/>
     <fragment
         android:id="@+id/productAlert"
-        android:name="com.example.diseaseoutbreaks.ui.productalert.ProductAlert"
+        android:name="com.example.diseaseoutbreaks.ui.ProductAlert"
         android:label="Medical Product Alert"
         tools:layout="@layout/fragment_product_alert"/>
 </navigation>

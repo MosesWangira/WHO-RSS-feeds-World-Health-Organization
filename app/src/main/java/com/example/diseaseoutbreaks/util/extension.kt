@@ -102,3 +102,13 @@ fun isNetworkAvailable(context: Context): Boolean {
     return (activeNetworkInfo != null && activeNetworkInfo.isConnected)
 }
 
+/**
+ * Hide loading progress
+ * */
+fun hideLoadingProgress(view: View){
+    view.apply {
+        clearAnimation()
+        visibility = View.GONE
+    }
+}
+
