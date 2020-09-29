@@ -42,7 +42,7 @@ class MaternalViewModel(application: Application) : AndroidViewModel(application
     }
 
     private fun fetchMaternalInformation() {
-        val fetchingDiseases = RetrofitBuilder.apiService.getMaternalInformation()
+        val fetchingDiseases = RetrofitBuilder.apiService.getMaternalInformationAsync()
         fetchingDiseases.enqueue(object : retrofit2.Callback<MaternalDataClass> {
             override fun onFailure(call: Call<MaternalDataClass>, t: Throwable) {
                 allMaternalHealthInformation.postValue(null)

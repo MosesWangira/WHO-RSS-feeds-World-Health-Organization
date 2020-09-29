@@ -10,9 +10,6 @@ import com.example.diseaseoutbreaks.data.Model.news.NewsItem
 import com.example.diseaseoutbreaks.data.adapter.NewsAdapter
 import com.example.diseaseoutbreaks.data.network.RetrofitBuilder
 import kotlinx.coroutines.launch
-import retrofit2.Call
-import retrofit2.Response
-import retrofit2.await
 import java.io.IOException
 
 class NewsViewModel(application: Application) : AndroidViewModel(application) {
@@ -50,7 +47,7 @@ class NewsViewModel(application: Application) : AndroidViewModel(application) {
 
     private fun fetchNewsInCoroutine() = viewModelScope.launch {
         try{
-            val fetchingNews = RetrofitBuilder.apiService.getNews().await()
+            val fetchingNews = RetrofitBuilder.apiService.getNewsAsync().await()
             allNews.postValue(fetchingNews)
         }catch (networkError: IOException){
             allNews.postValue(null)

@@ -39,7 +39,7 @@ class News : Fragment(R.layout.fragment_news) {
         makeApiCallCoroutine()
     }
 
-    private fun makeApiCallCoroutine(): NewsViewModel {
+    private fun makeApiCallCoroutine(): NewsViewModel  {
         viewModel.getAllNewsData().observe(viewLifecycleOwner, Observer<NewsDataClass> {
             if (it != null) {
                 binding.emptyView.visibility = GONE

@@ -5,8 +5,6 @@ data class NewsItem(
     val categories: List<Any>,
     val content: String,
     val description: String,
-    val guid: String,
-    val link: String,
     val pubDate: String,
     val thumbnail: String,
     val title: String

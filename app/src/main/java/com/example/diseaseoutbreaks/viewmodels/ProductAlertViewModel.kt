@@ -10,9 +10,6 @@ import com.example.diseaseoutbreaks.data.Model.productalert.ProductItem
 import com.example.diseaseoutbreaks.data.adapter.ProductAlertAdapter
 import com.example.diseaseoutbreaks.data.network.RetrofitBuilder
 import kotlinx.coroutines.launch
-import retrofit2.Call
-import retrofit2.Response
-import retrofit2.await
 import java.io.IOException
 
 class ProductAlertViewModel(application: Application) : AndroidViewModel(application) {
@@ -47,7 +44,7 @@ class ProductAlertViewModel(application: Application) : AndroidViewModel(applica
 
     private fun fetchProductInCoroutine() = viewModelScope.launch {
         try{
-            val fetchingProduct = RetrofitBuilder.apiService.getMedicalProductNews().await()
+            val fetchingProduct = RetrofitBuilder.apiService.getMedicalProductNewsAsync().await()
             allMedicalProduct.postValue(fetchingProduct)
         }catch (networkError: IOException){
             allMedicalProduct.postValue(null)
