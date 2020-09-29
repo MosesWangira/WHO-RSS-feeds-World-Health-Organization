@@ -10,6 +10,7 @@ import com.example.diseaseoutbreaks.R
 import com.example.diseaseoutbreaks.data.Model.diseases.DiseaseDataClass
 import com.example.diseaseoutbreaks.databinding.FragmentDiseaseOutbreaksBinding
 import com.example.diseaseoutbreaks.util.animate
+import com.example.diseaseoutbreaks.util.hideLoadingProgress
 import com.example.diseaseoutbreaks.util.rotateAndFadeIn
 import com.example.diseaseoutbreaks.util.toast
 import com.example.diseaseoutbreaks.viewmodels.DiseaseOutbreakViewModel
@@ -40,10 +41,8 @@ class DiseaseOutbreaks : Fragment(R.layout.fragment_disease_outbreaks) {
     private fun makeApiCallCoroutines(): DiseaseOutbreakViewModel {
         viewModel.getAllDiseaseOutBreaks().observe(viewLifecycleOwner, Observer<DiseaseDataClass> {
             if (it != null) {
-                binding.apply {
-                    emptyView.visibility = View.GONE
-                    hideLoadingProgress()
-                }
+                binding.emptyView.visibility = View.GONE
+                com.example.diseaseoutbreaks.util.hideLoadingProgress(binding.loading)
                 /**
                  * update the adapter
                  * */
@@ -55,22 +54,12 @@ class DiseaseOutbreaks : Fragment(R.layout.fragment_disease_outbreaks) {
                 viewModel.setAdapterData(it.items)
 
             } else {
-                binding.apply {
-                    emptyView.visibility = View.VISIBLE
-                    hideLoadingProgress()
-                }
-
+                binding.emptyView.visibility = View.VISIBLE
+                hideLoadingProgress(binding.loading)
                 requireContext().toast("Click refresh icon to load data")
             }
         })
 
         return viewModel
-    }
-
-    private fun hideLoadingProgress() {
-        binding.loading.apply {
-            clearAnimation()
-            visibility = View.GONE
-        }
     }
 }

@@ -32,7 +32,7 @@ class News : Fragment(R.layout.fragment_news) {
             emptyView.visibility = GONE
             loading.apply {
                 visibility = VISIBLE
-                startAnimation(rotateAndFadeIn(requireContext(), R.anim.rotate_animation ))
+                startAnimation(rotateAndFadeIn(requireContext(), R.anim.rotate_animation))
             }
         }
 
@@ -42,10 +42,8 @@ class News : Fragment(R.layout.fragment_news) {
     private fun makeApiCallCoroutine(): NewsViewModel {
         viewModel.getAllNewsData().observe(viewLifecycleOwner, Observer<NewsDataClass> {
             if (it != null) {
-                binding.apply {
-                    emptyView.visibility = GONE
-                    hideLoadingProgress()
-                }
+                binding.emptyView.visibility = GONE
+                hideLoadingProgress(binding.loading)
                 /**
                  * update the adapter
                  * */
@@ -57,10 +55,8 @@ class News : Fragment(R.layout.fragment_news) {
                 viewModel.setAdapterData(it.items)
 
             } else {
-                binding.apply {
-                    emptyView.visibility = VISIBLE
-                    hideLoadingProgress(binding.loading)
-                }
+                binding.emptyView.visibility = VISIBLE
+                hideLoadingProgress(binding.loading)
                 requireContext().toast("Click refresh icon to load data")
             }
         })

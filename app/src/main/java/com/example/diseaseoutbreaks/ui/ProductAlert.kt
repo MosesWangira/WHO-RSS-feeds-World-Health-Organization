@@ -10,6 +10,7 @@ import com.example.diseaseoutbreaks.R
 import com.example.diseaseoutbreaks.data.Model.productalert.ProductAlertDataClass
 import com.example.diseaseoutbreaks.databinding.FragmentProductAlertBinding
 import com.example.diseaseoutbreaks.util.animate
+import com.example.diseaseoutbreaks.util.hideLoadingProgress
 import com.example.diseaseoutbreaks.util.rotateAndFadeIn
 import com.example.diseaseoutbreaks.util.toast
 import com.example.diseaseoutbreaks.viewmodels.ProductAlertViewModel
@@ -40,10 +41,8 @@ class ProductAlert : Fragment(R.layout.fragment_product_alert) {
     private fun makeApiCallInCoroutines(): ProductAlertViewModel {
         viewModel.getAllMedicalProducts().observe(viewLifecycleOwner, Observer<ProductAlertDataClass> {
             if (it != null) {
-                binding.apply {
-                    emptyView.visibility = View.GONE
-                    hideLoadingProgress()
-                }
+                binding.emptyView.visibility = View.GONE
+                hideLoadingProgress(binding.loading)
                 /**
                  * update the adapter
                  * */
@@ -55,11 +54,8 @@ class ProductAlert : Fragment(R.layout.fragment_product_alert) {
                 viewModel.setAdapterData(it.items)
 
             } else {
-                binding.apply {
-                    emptyView.visibility = View.VISIBLE
-                    hideLoadingProgress()
-                }
-
+                binding.emptyView.visibility = View.VISIBLE
+                hideLoadingProgress(binding.loading)
                 requireContext().toast("Click refresh icon to load data")
             }
         })
@@ -67,10 +63,4 @@ class ProductAlert : Fragment(R.layout.fragment_product_alert) {
         return viewModel
     }
 
-    private fun hideLoadingProgress(){
-        binding.loading.apply {
-            clearAnimation()
-            visibility = View.GONE
-        }
-    }
 }
