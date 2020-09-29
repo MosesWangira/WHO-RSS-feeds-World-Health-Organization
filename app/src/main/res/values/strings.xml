@@ -2,18 +2,12 @@
     <string name="app_name">WHO Feeds</string>
     <string name="description">Hello moses I wish this will provide a beatiful UI as I believe it will</string>
     <string name="publication_date">publication date</string>
-    <string name="link">link</string>
     <string name="title_of_the_disease">Title of the Disease</string>
-    <string name="search_disease">Search Disease</string>
-    <string name="search">Search</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="news">News</string>
     <string name="outbreaks">Outbreaks</string>
     <string name="product_alert">Product Alert</string>
-    <string name="feature_stories">Stories</string>
     <string name="emergency_news">Emergency</string>
     <string name="child_health">Child Health</string>
     <string name="connect_to_internet">Connect to internet</string>
-    <string name="refresh">refresh</string>
 </resources>
