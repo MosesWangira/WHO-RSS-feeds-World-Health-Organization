@@ -14,7 +14,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_marginBottom="50dp"
-        tools:context=".ui.ProductAlert">
+        tools:context=".ui.fragments.ProductAlert">
 
         <ImageView
             android:id="@+id/loading"

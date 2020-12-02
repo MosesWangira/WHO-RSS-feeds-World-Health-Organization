@@ -1,4 +1,4 @@
-package com.example.diseaseoutbreaks
+package com.example.diseaseoutbreaks.ui.activites
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

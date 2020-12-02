@@ -4,12 +4,14 @@ import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.example.diseaseoutbreaks.data.Model.maternal.MaternalDataClass
 import com.example.diseaseoutbreaks.data.Model.maternal.MaternalItem
 import com.example.diseaseoutbreaks.data.adapter.MaternalAdapter
 import com.example.diseaseoutbreaks.data.network.RetrofitBuilder
-import retrofit2.Call
-import retrofit2.Response
+import kotlinx.coroutines.launch
+import retrofit2.await
+import java.io.IOException
 
 class MaternalViewModel(application: Application) : AndroidViewModel(application) {
     /**
@@ -41,24 +43,13 @@ class MaternalViewModel(application: Application) : AndroidViewModel(application
         return allMaternalHealthInformation
     }
 
-    private fun fetchMaternalInformation() {
-        val fetchingDiseases = RetrofitBuilder.apiService.getMaternalInformationAsync()
-        fetchingDiseases.enqueue(object : retrofit2.Callback<MaternalDataClass> {
-            override fun onFailure(call: Call<MaternalDataClass>, t: Throwable) {
-                allMaternalHealthInformation.postValue(null)
-            }
-
-            override fun onResponse(
-                call: Call<MaternalDataClass>,
-                response: Response<MaternalDataClass>
-            ) {
-                if (response.isSuccessful) {
-                    allMaternalHealthInformation.postValue(response.body())
-                } else {
-                    allMaternalHealthInformation.postValue(null)
-                }
-            }
-
-        })
+    private fun fetchMaternalInformation() = viewModelScope.launch {
+        try {
+            val fetchingMaternal =
+                RetrofitBuilder.apiService.getMaternalInformationAsync().await()
+            allMaternalHealthInformation.postValue(fetchingMaternal)
+        } catch (networkError: IOException) {
+            allMaternalHealthInformation.postValue(null)
+        }
     }
 }

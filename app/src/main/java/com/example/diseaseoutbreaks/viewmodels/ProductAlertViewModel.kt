@@ -10,6 +10,7 @@ import com.example.diseaseoutbreaks.data.Model.productalert.ProductItem
 import com.example.diseaseoutbreaks.data.adapter.ProductAlertAdapter
 import com.example.diseaseoutbreaks.data.network.RetrofitBuilder
 import kotlinx.coroutines.launch
+import retrofit2.await
 import java.io.IOException
 
 class ProductAlertViewModel(application: Application) : AndroidViewModel(application) {

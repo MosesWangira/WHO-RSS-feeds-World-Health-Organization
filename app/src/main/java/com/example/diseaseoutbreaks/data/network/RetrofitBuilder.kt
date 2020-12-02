@@ -10,7 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitBuilder {
 
-    const val BASE_URL: String = "https://api.rss2json.com/"
+    private const val BASE_URL: String = "https://api.rss2json.com/"
 
 
     private val retrofitBuilder: Retrofit.Builder by lazy {

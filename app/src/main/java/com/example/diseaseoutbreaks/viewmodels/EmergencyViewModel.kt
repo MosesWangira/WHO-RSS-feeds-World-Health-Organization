@@ -10,6 +10,7 @@ import com.example.diseaseoutbreaks.data.Model.emergency.EmergencyItem
 import com.example.diseaseoutbreaks.data.adapter.EmergencyAdapter
 import com.example.diseaseoutbreaks.data.network.RetrofitBuilder
 import kotlinx.coroutines.launch
+import retrofit2.await
 import java.io.IOException
 
 class EmergencyViewModel(application: Application) : AndroidViewModel(application) {

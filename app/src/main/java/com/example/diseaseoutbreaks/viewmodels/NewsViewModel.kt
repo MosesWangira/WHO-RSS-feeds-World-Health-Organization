@@ -10,6 +10,7 @@ import com.example.diseaseoutbreaks.data.Model.news.NewsItem
 import com.example.diseaseoutbreaks.data.adapter.NewsAdapter
 import com.example.diseaseoutbreaks.data.network.RetrofitBuilder
 import kotlinx.coroutines.launch
+import retrofit2.await
 import java.io.IOException
 
 class NewsViewModel(application: Application) : AndroidViewModel(application) {

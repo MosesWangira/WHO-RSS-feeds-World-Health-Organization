@@ -1,9 +1,10 @@
-package com.example.diseaseoutbreaks
+package com.example.diseaseoutbreaks.ui.activites
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import com.example.diseaseoutbreaks.R
 import com.example.diseaseoutbreaks.databinding.ActivitySplashScreenBinding
 import com.example.diseaseoutbreaks.util.rotateAndFadeIn
 
@@ -15,11 +16,17 @@ class SplashScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_splash_screen)
+        binding = DataBindingUtil.setContentView(this,
+            R.layout.activity_splash_screen
+        )
 
         binding.apply {
-            splashImage.startAnimation(rotateAndFadeIn(this@SplashScreen, R.anim.splash_animation))
-            splashText.startAnimation(rotateAndFadeIn(this@SplashScreen, R.anim.splash_animation))
+            splashImage.startAnimation(rotateAndFadeIn(this@SplashScreen,
+                R.anim.splash_animation
+            ))
+            splashText.startAnimation(rotateAndFadeIn(this@SplashScreen,
+                R.anim.splash_animation
+            ))
         }
 
         val toLogin = Intent(this, MainActivity::class.java)

@@ -1,4 +1,4 @@
-package com.example.diseaseoutbreaks.ui
+package com.example.diseaseoutbreaks.ui.fragments
 
 import android.os.Bundle
 import android.view.View
@@ -7,49 +7,48 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.diseaseoutbreaks.R
-import com.example.diseaseoutbreaks.data.Model.emergency.EmergencyDataClass
-import com.example.diseaseoutbreaks.databinding.FragmentEmergencyBinding
+import com.example.diseaseoutbreaks.data.Model.diseases.DiseaseDataClass
+import com.example.diseaseoutbreaks.databinding.FragmentDiseaseOutbreaksBinding
 import com.example.diseaseoutbreaks.util.animate
 import com.example.diseaseoutbreaks.util.hideLoadingProgress
 import com.example.diseaseoutbreaks.util.rotateAndFadeIn
 import com.example.diseaseoutbreaks.util.toast
-import com.example.diseaseoutbreaks.viewmodels.EmergencyViewModel
+import com.example.diseaseoutbreaks.viewmodels.DiseaseOutbreakViewModel
 
-class Emergency : Fragment(R.layout.fragment_emergency) {
 
-    private lateinit var binding: FragmentEmergencyBinding
+class DiseaseOutbreaks : Fragment(R.layout.fragment_disease_outbreaks) {
 
-    private lateinit var viewModel: EmergencyViewModel
+    private lateinit var viewModel: DiseaseOutbreakViewModel
 
+    private lateinit var binding: FragmentDiseaseOutbreaksBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         binding = DataBindingUtil.bind(view)!!
-        viewModel = ViewModelProvider(this).get(EmergencyViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(DiseaseOutbreakViewModel::class.java)
         binding.apply {
-            fragmentEmergencyViewModel = viewModel
-            lifecycleOwner = this@Emergency
+            fragmentDiseaseViewModel = viewModel
+            lifecycleOwner = this@DiseaseOutbreaks
             emptyView.visibility = View.GONE
             loading.apply {
                 visibility = View.VISIBLE
                 startAnimation(rotateAndFadeIn(requireContext(), R.anim.rotate_animation))
             }
         }
-        makeApiCallInCoroutines()
+        makeApiCallCoroutines()
     }
 
-    private fun makeApiCallInCoroutines(): EmergencyViewModel {
-        viewModel.getAllEmergenciesData().observe(viewLifecycleOwner, Observer<EmergencyDataClass> {
+    private fun makeApiCallCoroutines(): DiseaseOutbreakViewModel {
+        viewModel.getAllDiseaseOutBreaks().observe(viewLifecycleOwner, Observer<DiseaseDataClass> {
             if (it != null) {
                 binding.emptyView.visibility = View.GONE
                 hideLoadingProgress(binding.loading)
                 /**
                  * update the adapter
                  * */
-                binding.emergencyRecyclerView.apply {
+                binding.recyclerView.apply {
                     hasFixedSize()
-                    layoutAnimation = animate(requireContext(), R.anim.layout_animation_from_bottom)
+                    layoutAnimation = animate(requireContext(), R.anim.layout_animation_fall_down)
                 }
 
                 viewModel.setAdapterData(it.items)
@@ -63,5 +62,4 @@ class Emergency : Fragment(R.layout.fragment_emergency) {
 
         return viewModel
     }
-
 }

@@ -31,19 +31,6 @@
             app:srcCompat="@drawable/disease_place_holder"
             />
 
-<!--        <de.hdodenhof.circleimageview.CircleImageView-->
-<!--            android:id="@+id/imageLeft"-->
-<!--            android:layout_width="70dp"-->
-<!--            android:layout_height="70dp"-->
-<!--            android:layout_gravity="center_vertical"-->
-<!--            android:layout_marginStart="2dp"-->
-<!--            android:layout_marginEnd="2dp"-->
-<!--            android:padding="1dp"-->
-<!--            android:scaleType="fitCenter"-->
-<!--            app:civ_border_width="1dp"-->
-<!--            app:civ_border_color="@color/colorPrimary"-->
-<!--            tools:src="@drawable/disease_place_holder" />-->
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

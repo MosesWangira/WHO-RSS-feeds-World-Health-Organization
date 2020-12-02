@@ -12,6 +12,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
+import retrofit2.await
 import java.io.IOException
 
 class DiseaseOutbreakViewModel(application: Application) : AndroidViewModel(application) {
